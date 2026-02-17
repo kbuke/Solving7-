@@ -1,13 +1,14 @@
-from models.TeamMemberModel import TeamMemberModel
 from resources.BaseResource import BaseResource
+from models.ProductModel import ProductModel
 
-class TeamMember(BaseResource):
-    model = TeamMemberModel
+from config import db 
+
+class Products(BaseResource):
+    model = ProductModel
 
     field_map = {
-        "memberName": "name",
-        "memberPosition": "position",
-        "memberIntro": "intro"
+        "productName": "name",
+        "productInfo": "info"
     }
 
     def get(self):
@@ -16,18 +17,17 @@ class TeamMember(BaseResource):
     def post(self):
         return self.post_instance()
 
-class SpecificTeamMember(BaseResource):
-    model = TeamMemberModel
+class SpecificProduct(BaseResource):
+    model = ProductModel
 
     field_map = {
-        "memberName": "name",
-        "memberPosition": "position",
-        "memberIntro": "intro"
+        "productName": "name",
+        "productInfo": "info"
     }
 
     def get(self, id):
         return self.get_specific(id)
-
+    
     def patch(self, id):
         return self.patch_instance(id)
     

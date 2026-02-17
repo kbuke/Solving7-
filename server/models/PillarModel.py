@@ -3,6 +3,12 @@ from sqlalchemy_serializer import SerializerMixin
 
 from config import db
 
+from validators.validate_string import validate_string
+from validators.validate_uniqueness import validate_uniqueness
+from validators.validate_instance_numbers import validate_instance_numbers
+
+from helpers.ManyToManyDefined import many_to_many_defined
+
 class PillarModel(db.Model, SerializerMixin):
     __tablename__ = "pillars"
 
@@ -11,3 +17,41 @@ class PillarModel(db.Model, SerializerMixin):
     challenge = db.Column(db.String, nullable = False)
     offering = db.Column(db.String, nullable = False)
     success = db.Column(db.String, nullable = False)
+
+    sustainable_goals = many_to_many_defined(
+        "SustainableGoalModel",
+        "pillars",
+        "sustainable_pillars"
+    )
+
+    serialize_rules=(
+        "-sustainable_goals.pillars",
+    )
+
+    @validates("name")
+    def validate_pillar_name(self, key, value):
+        # Ensure proper string
+        value = validate_string(
+            value,
+            "Pillar Name",
+            "sustainable_pillars"
+        )
+
+        # Ensure value is unique
+        value = validate_uniqueness(
+            value, 
+            self,
+            PillarModel,
+            key,
+            "Pillar Name"
+        )
+
+        # Ensure no more than 17 values
+        return validate_instance_numbers(
+            PillarModel,
+            self,
+            17,
+            key,
+            value
+        )
+
