@@ -2,6 +2,7 @@ import { useOutletContext, useNavigate } from "react-router"
 import { LabelInput } from "../../Component/LabelInput"
 import { useForm } from "react-hook-form"
 import {usePost} from "../../CustomHooks/usePost.js"
+import { useEffect } from "react"
 
 export function LoginPg(){
     const appData = useOutletContext()
@@ -13,6 +14,24 @@ export function LoginPg(){
     const setLoading = appData?.setLoading
 
     const navigate = useNavigate()
+
+    // Ensure a user can not access this page if they are already logged in. 
+    useEffect(() => {
+        const checkAuth = async () => {
+            try {
+                const res = await fetch("/api/check-admin", {
+                    credentials: "include",
+                })
+                if (res.ok) {
+                    navigate("/admin")
+                }
+            } catch (err) {
+                console.error(err)
+                navigate("/admin")
+            }
+        }
+        checkAuth()
+    }, [])
 
     const {
         register,

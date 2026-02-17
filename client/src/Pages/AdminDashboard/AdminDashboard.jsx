@@ -1,9 +1,30 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { PopUp } from "../../Component/PopUp"
 import { LogOut } from "./Components/LogOut"
+import { useNavigate } from "react-router"
 
 export function AdminDashboard(){
     const [logout, setLogout] = useState()
+
+    const navigate = useNavigate()
+
+    // Ensure user is logged in and not just entered the url
+    useEffect(() => {
+        const checkAuth = async () => {
+            try {
+                const res = await fetch("/api/check-admin", {
+                    credentials: "include",
+                })
+                if (!res.ok) {
+                    navigate("/login")
+                }
+            } catch (err) {
+                console.error(err)
+                navigate("/login")
+            }
+        }
+        checkAuth()
+    }, [])
 
     const adminSections = ["Pillars", "Teams", "Employees", "UN Sustainability Goals", "News"]
 

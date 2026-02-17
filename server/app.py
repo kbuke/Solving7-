@@ -8,6 +8,7 @@ from resources.Products import Products, SpecificProduct
 from resources.SustainableGoals import SustainableGoals, SpecificSustainableGoal
 from resources.SustainablePillar import SustainablePillar, SpecificSustainablePillar
 from resources.AdminDashboard import AdminDashboard
+from resources.CheckAdmin import CheckAdmin
 from resources.Login import Login
 from resources.Logout import Logout
 
@@ -30,8 +31,11 @@ add_resource(SustainablePillar, "/sustainablepillar")
 add_resource(SpecificSustainablePillar, "/sustainablepillar/<int:id>")
 
 add_resource(Login, "/login")
-add_resource(AdminDashboard, "/admin")
 add_resource(Logout, "/logout")
+
+add_resource(AdminDashboard, "/admin")
+add_resource(CheckAdmin, "/check-admin")
+
 
 if __name__ == "__main__":
     app.run(port = 5555, debug = True)
