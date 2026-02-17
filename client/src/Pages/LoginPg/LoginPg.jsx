@@ -1,0 +1,113 @@
+import { useOutletContext, useNavigate } from "react-router"
+import { LabelInput } from "../../Component/LabelInput"
+import { useForm } from "react-hook-form"
+import {usePost} from "../../CustomHooks/usePost.js"
+
+export function LoginPg(){
+    const appData = useOutletContext()
+
+    const error = appData?.error
+    const setError = appData?.setError
+
+    const loading = appData?.loading
+    const setLoading = appData?.setLoading
+
+    const navigate = useNavigate()
+
+    const {
+        register,
+        handleSubmit,
+        formState: {errors}
+    } = useForm()
+
+    const handleLogin = (formData) => {
+        usePost({
+            url: "/api/login",
+            body: formData,
+            credentials: "include",
+            setLoading: setLoading,
+            onSuccess: () => {
+                navigate("/admin")
+            },
+            onError: setError,
+        })
+    }
+
+    console.log(error)
+
+    return(
+        <div
+            className="h-screen w-full bg-center bg-no-repeat bg-cover flex items-center justify-center"
+            style={{backgroundImage:`url(/LoginBgImg/loginBgPortrait.jpg`}}
+        >
+            <form
+                className="
+                    h-[37%] w-[90%] bg-gray-500/60 rounded-lg p-4
+                    lg:h-[48%] lg:w-[60%]
+                "
+                onSubmit={handleSubmit(handleLogin)}
+            >
+                <h1
+                    className="
+                        uppercase border-b border-white text-2xl text-white font-bold tracking-wider
+                        lg:text-5xl
+                    "
+                >
+                    Solving-7 Login
+                </h1>
+
+                {error && (
+                    <p>
+                        {error}
+                    </p>
+                )}
+
+                <LabelInput 
+                    labelText={"Email"}
+                    inputType={"text"}
+                    placeholderText={"Please enter email"}
+                    inputName={"adminEmail"}
+                    inputValidations={{
+                        required: "Please enter a value"
+                    }}
+                    marginTop={"mt-5"}
+                    inputHeight={"h-8 lg:h-12"}
+                    labelSize={"text-lg lg:text-3xl"}
+                    inputWidth={"lg:w-[60%]"}
+                    errors={errors}
+                    register={register}
+                    formCss={"font-bold text-2xl"}
+                />
+
+                <LabelInput 
+                    labelText={"Password"}
+                    inputType={"password"}
+                    placeholderText={"Please enter password"}
+                    inputName={"adminPassword"}
+                    inputValidations={{
+                        required: "Please enter a value"
+                    }}
+                    marginTop={"mt-5"}
+                    inputHeight={"h-8 lg:h-12"}
+                    labelSize={"text-lg lg:text-3xl"}
+                    inputWidth={"lg:w-[60%]"}
+                    errors={errors}
+                    register={register}
+                    formCss={"font-bold text-2xl"}
+                />
+
+                <div className="flex justify-end lg:mt-4">
+                    <button
+                        className="
+                            bg-[rgba(80,160,0,1)] rounded-lg p-2 mt-4 text-white uppercase w-[30%]
+                            lg:w-[20%] lg:h-15 lg:text-2xl cursor-pointer hover:-translate-y-2 duration-200
+                        "
+                    >
+                        Login
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    )
+}
