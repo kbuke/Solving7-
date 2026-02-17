@@ -9,6 +9,7 @@ from resources.SustainableGoals import SustainableGoals, SpecificSustainableGoal
 from resources.SustainablePillar import SustainablePillar, SpecificSustainablePillar
 from resources.AdminDashboard import AdminDashboard
 from resources.Login import Login
+from resources.Logout import Logout
 
 add_resource(Members, "/members")
 add_resource(SpecificMember, "/members/<int:id>")
@@ -30,6 +31,7 @@ add_resource(SpecificSustainablePillar, "/sustainablepillar/<int:id>")
 
 add_resource(Login, "/login")
 add_resource(AdminDashboard, "/admin")
+add_resource(Logout, "/logout")
 
 if __name__ == "__main__":
     app.run(port = 5555, debug = True)

@@ -57,9 +57,15 @@ export function LoginPg(){
                 </h1>
 
                 {error && (
-                    <p>
-                        {error}
-                    </p>
+                    <div
+                        className="
+                            justify-self-center bg-red-600 w-[60%] mt-4 rounded h-10 flex items-center justify-center text-white text-xl uppercase
+                        "
+                    >
+                        <p>
+                            {error}
+                        </p>
+                    </div>
                 )}
 
                 <LabelInput 
