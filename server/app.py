@@ -7,6 +7,8 @@ from resources.Pillars import Pillar, SpecificPillar
 from resources.Products import Products, SpecificProduct
 from resources.SustainableGoals import SustainableGoals, SpecificSustainableGoal
 from resources.SustainablePillar import SustainablePillar, SpecificSustainablePillar
+from resources.AdminDashboard import AdminDashboard
+from resources.Login import Login
 
 add_resource(Members, "/members")
 add_resource(SpecificMember, "/members/<int:id>")
@@ -25,6 +27,9 @@ add_resource(SpecificSustainableGoal, "/sustainability/<int:id>")
 
 add_resource(SustainablePillar, "/sustainablepillar")
 add_resource(SpecificSustainablePillar, "/sustainablepillar/<int:id>")
+
+add_resource(Login, "/login")
+add_resource(AdminDashboard, "/admin")
 
 if __name__ == "__main__":
     app.run(port = 5555, debug = True)
