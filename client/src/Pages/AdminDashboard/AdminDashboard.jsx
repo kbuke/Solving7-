@@ -1,10 +1,20 @@
 import { useState, useEffect } from "react"
 import { PopUp } from "../../Component/PopUp"
 import { LogOut } from "./Components/LogOut"
-import { useNavigate } from "react-router"
+import { useNavigate, useOutletContext } from "react-router"
+import { AdminPopUp } from "../../Component/AdminPopUp"
 
 export function AdminDashboard(){
     const [logout, setLogout] = useState()
+    const [selectedTopic, setSelectedTopic] = useState()
+
+    const appData = useOutletContext()
+
+    const allTeams = appData?.allTeams
+    const allPillars = appData?.allPillars
+    const allEmployees = appData?.allEmployees
+    const unGoals = appData?.unGoals
+    const allProducts = appData?.allProducts
 
     const navigate = useNavigate()
 
@@ -26,7 +36,15 @@ export function AdminDashboard(){
         checkAuth()
     }, [])
 
-    const adminSections = ["Pillars", "Teams", "Employees", "UN Sustainability Goals", "News"]
+    // Create object of all the options on rendered page
+    const adminSections = [
+        {key: "pillars", label: "Pillars"},
+        {key: "teams", label: "Teams"},
+        {key: "employees", label: "Employees"},
+        {key: "sustainabilityGoals", label: "UN Sustainability Goals"},
+        {key: "products", label: "Products"},
+        {key: "news", label: "News"}
+    ]
 
     return(
         <section
@@ -62,14 +80,14 @@ export function AdminDashboard(){
                             className="mb-4 flex flex-col border-b border-gray-400/80 py-2 items-center lg:py-4"
                         >
                             <img 
-                                src={`/AdminPics/${aS}.png`}
+                                src={`/AdminPics/${aS.label}.png`}
                                 className="rounded"
                             />
 
                             <h2
                                 className="uppercase text-2xl tracking-wide lg:text-4xl lg:mt-4"
                             >
-                                {aS}
+                                {aS.label}
                             </h2>
 
                             <button
@@ -77,6 +95,7 @@ export function AdminDashboard(){
                                     rounded px-2 bg-blue-500 text-white uppercase w-[40%] h-10
                                     lg:h-15 lg:w-[30%] lg:text-2xl mt-2 cursor-pointer lg:mt-4
                                 "
+                                onClick={() => setSelectedTopic(aS.key)}
                             >
                                 See More
                             </button>
@@ -91,8 +110,22 @@ export function AdminDashboard(){
                         setLogout={setLogout}
                     />
                 </PopUp>
-            )
-            }
+            )}
+
+            {selectedTopic && (
+                <PopUp>
+                    <AdminPopUp 
+                        topic={selectedTopic}
+                        setTopic={setSelectedTopic}
+
+                        allTeams={allTeams}
+                        allPillars={allPillars}
+                        allEmployees={allEmployees}
+                        unGoals={unGoals}
+                        allProducts={allProducts}
+                    />
+                </PopUp>
+            )}
         </section>
     )
 }

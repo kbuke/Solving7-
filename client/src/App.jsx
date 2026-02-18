@@ -1,10 +1,25 @@
 import { useState } from 'react'
 import { CalcScreenWidth } from './Component/CalcScreenWidth'
 import { Outlet } from "react-router"
+import {useFetch} from "./CustomHooks/useFetch.js"
 
 function App() {
   const [error, setError] = useState()
   const [loading, setLoading] = useState()
+
+  const [allPillars, setAllPillars] = useState()
+  const [allTeams, setAllTeams] = useState()
+  const [allEmployees, setAllEmployees] = useState()
+  const [unGoals, setUnGoals] = useState()
+  const [allProducts, setAllProducts] = useState()
+  
+
+  // Fetch all values for each model
+  useFetch("/api/pillars", setAllPillars)
+  useFetch("/api/teams", setAllTeams)
+  useFetch("/api/members", setAllEmployees)
+  useFetch("/api/sustainability", setUnGoals)
+  useFetch("/api/products", setAllProducts)
 
   // Calculate the width of the screen at all times
   const screenWidth = CalcScreenWidth()
@@ -12,6 +27,13 @@ function App() {
   const outletContext = {
     error, setError,
     loading, setLoading,
+
+    allTeams, setAllTeams,
+    allPillars, setAllPillars,
+    allEmployees, setAllEmployees,
+    unGoals, setUnGoals,
+    allProducts, setAllProducts,
+
     screenWidth
   }
 

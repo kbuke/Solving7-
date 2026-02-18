@@ -52,8 +52,6 @@ export function LoginPg(){
         })
     }
 
-    console.log(error)
-
     return(
         <div
             className="h-screen w-full bg-center bg-no-repeat bg-cover flex items-center justify-center"
