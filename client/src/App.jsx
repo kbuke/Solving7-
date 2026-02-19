@@ -12,14 +12,16 @@ function App() {
   const [allEmployees, setAllEmployees] = useState()
   const [unGoals, setUnGoals] = useState()
   const [allProducts, setAllProducts] = useState()
+  const [allPillarGoals, setAllPillarGoals] = useState()
   
 
   // Fetch all values for each model
-  useFetch("/api/pillars", setAllPillars)
+  useFetch("/api/pillars", setAllPillars, [allPillarGoals])
   useFetch("/api/teams", setAllTeams)
   useFetch("/api/members", setAllEmployees)
   useFetch("/api/sustainability", setUnGoals)
   useFetch("/api/products", setAllProducts)
+  useFetch("/api/sustainablepillar", setAllPillarGoals)
 
   // Calculate the width of the screen at all times
   const screenWidth = CalcScreenWidth()
@@ -33,6 +35,7 @@ function App() {
     allEmployees, setAllEmployees,
     unGoals, setUnGoals,
     allProducts, setAllProducts,
+    allPillarGoals, setAllPillarGoals,
 
     screenWidth
   }

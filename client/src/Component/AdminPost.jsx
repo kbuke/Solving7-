@@ -73,9 +73,6 @@ export function AdminPost({
   const current = postConfig[topic]
 
   const handleInstancePost = (formData) => {
-    console.log("topic:", topic)
-    console.log("current:", current)
-
     usePost({
       url: current.endpoint,
       body: formData,
