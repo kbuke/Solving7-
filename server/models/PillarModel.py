@@ -33,8 +33,7 @@ class PillarModel(db.Model, SerializerMixin):
         # Ensure proper string
         value = validate_string(
             value,
-            "Pillar Name",
-            "sustainable_pillars"
+            "Pillar Name"
         )
 
         # Ensure value is unique

@@ -5,6 +5,8 @@ import { AdminPillars } from "../Pages/AdminDashboard/Components/AdminPillars"
 import { AdminEmployees } from "../Pages/AdminDashboard/Components/AdminEmployees"
 import { AdminSustainability } from "../Pages/AdminDashboard/Components/AdminSustainabiliy"
 import { AdminProducts } from "../Pages/AdminDashboard/Components/AdminProducts"
+import { useState } from "react"
+import { AdminPost } from "./AdminPost"
 
 export function AdminPopUp({
     topic,
@@ -12,11 +14,20 @@ export function AdminPopUp({
 
     //Import all instances of all models
     allTeams,
+    setAllTeams,
     allPillars,
+    setAllPillars,
     allEmployees,
+    setAllEmployees,
     unGoals,
-    allProducts
+    setUnGoals,
+    allProducts,
+    setAllProducts,
+
+    setLoading
 }){
+    const [action, setAction] = useState(null)
+
     const componentMap = {
         pillars: AdminPillars,
         teams: AdminTeams,
@@ -39,7 +50,7 @@ export function AdminPopUp({
         <div
             className="
                 bg-white h-200 w-[90%] rounded-lg flex flex-col
-                lg:w-[98%] lg:h-240
+                lg:w-[98%] lg:h-[96%]
             "
         >
             <div
@@ -68,23 +79,44 @@ export function AdminPopUp({
                     </div>
                 </div>
 
-                <button
-                    className="
-                        self-center bg-green-600/80 rounded text-white w-[50%] px-4 h-12 uppercase
-                        lg:w-[15%] lg:h-16 lg:text-2xl hover:-translate-y-2 duration-200 cursor-pointer
-                    "
-                >
-                    Add {topic}
-                </button>
+                {action
+                    ? null
+                    : <button
+                        className="
+                            self-center bg-green-600/80 rounded text-white w-[50%] px-4 h-12 uppercase
+                            lg:w-[15%] lg:h-16 lg:text-2xl hover:-translate-y-2 duration-200 cursor-pointer
+                        "
+                        onClick={() => setAction("post")}
+                    >
+                        Add {topic}
+                    </button>
+                }
             </div>
 
-            {/* {instances} */}
+            {/* Instances */}
             <div
                 className="flex-1 overflow-y-auto"
             >
-                {SelectedComponent && (
-                    <SelectedComponent {...propsMap[topic]} />
-                )}
+                {action === "post"
+                    ? <AdminPost 
+                        topic={topic}
+                        setAction={setAction}
+                        allTeams={allTeams}
+                        setAllTeams={setAllTeams}
+                        allPillars={allPillars}
+                        setAllPillars={setAllPillars}
+                        allEmployees={allEmployees}
+                        setAllEmployees={setAllEmployees}
+                        unGoals={unGoals}
+                        setUnGoals={setUnGoals}
+                        allProducts={allProducts}
+                        setAllProducts={setAllProducts}
+                        setLoading={setLoading}
+                    />
+                    : SelectedComponent && (
+                        <SelectedComponent {...propsMap[topic]} />
+                    )
+                }
             </div>
 
             {/* Create a button tab where the user can close the pop up, only in the mobile */}

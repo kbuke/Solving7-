@@ -11,10 +11,21 @@ export function AdminDashboard(){
     const appData = useOutletContext()
 
     const allTeams = appData?.allTeams
+    const setAllTeams = appData?.setAllTeams
+
     const allPillars = appData?.allPillars
+    const setAllPillars = appData?.setAllPillars
+
     const allEmployees = appData?.allEmployees
+    const setAllEmployees = appData?.setAllEmployees
+
     const unGoals = appData?.unGoals
+    const setUnGoals = appData?.setUnGoals
+
     const allProducts = appData?.allProducts
+    const setAllProducts = appData?.setAllProducts
+
+    const setLoading = appData?.setLoading
 
     const navigate = useNavigate()
 
@@ -119,10 +130,16 @@ export function AdminDashboard(){
                         setTopic={setSelectedTopic}
 
                         allTeams={allTeams}
+                        setAllTeams={setAllTeams}
                         allPillars={allPillars}
+                        setAllPillars={setAllPillars}
                         allEmployees={allEmployees}
+                        setAllEmployees={setAllEmployees}
                         unGoals={unGoals}
+                        setUnGoals={setUnGoals}
                         allProducts={allProducts}
+                        setAllProducts={setAllProducts}
+                        setLoading={setLoading}
                     />
                 </PopUp>
             )}
