@@ -4,6 +4,7 @@ import { faChevronCircleLeft } from "@fortawesome/free-solid-svg-icons";
 import { useForm } from "react-hook-form";
 import { usePost } from "../CustomHooks/usePost";
 import { useState } from "react";
+import { PostTeam } from "../Pages/AdminDashboard/Components/PostTeam";
 
 export function AdminPost({
     topic,
@@ -20,7 +21,6 @@ export function AdminPost({
     setAllProducts,
     setLoading
 }){
-    console.log(setAllPillars)
     const [postSuccess, setPostSuccess] = useState(false)
 
     const {
@@ -35,6 +35,13 @@ export function AdminPost({
             setState: setAllPillars,
             component: PostPillar,
             props: {allPillars, setAllPillars, register, errors}
+        },
+
+        teams: {
+            endpoint: "/api/teams",
+            setState: setAllTeams,
+            component: PostTeam,
+            props: {allTeams, setAllTeams, register, errors}
         }
     }
 

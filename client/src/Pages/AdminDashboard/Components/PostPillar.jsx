@@ -13,13 +13,11 @@ export function PostPillar({
                 inputValidations={{
                     required: "Please Enter a value"
                 }}
+
                 marginTop={"mt-5"}
-                inputHeight={"h-8 lg:h-12"}
-                labelSize={"text-lg lg:text-3xl"}
-                labelColour={"text-black"}
                 containerPaddingX={"px-4"}
-                inputBorder={"border"}
-                inputWidth={"lg:w-[60%]"}
+                inputCss={"border rounded px-4"}
+
                 errors={errors}
                 register={register}
                 formCss={"font-bold text-2xl"}
@@ -33,11 +31,11 @@ export function PostPillar({
                 inputValidations={{
                     required: "Please enter a value"
                 }}
+
                 marginTop={"mt-5"}
-                labelSize={"text-lg lg:text-3xl"}
-                labelColour={"text-black"}
                 containerPaddingX={"px-4"}
                 textareaCss={"border h-32 rounded px-4"}
+
                 errors={errors}
                 register={register}
                 formCss={"font-bold text-2xl"}
@@ -52,10 +50,9 @@ export function PostPillar({
                     required: "Please enter a value"
                 }}
                 marginTop={"mt-5"}
-                labelSize={"text-lg lg:text-3xl"}
-                labelColour={"text-black"}
                 containerPaddingX={"px-4"}
                 textareaCss={"border h-32 rounded px-4"}
+
                 errors={errors}
                 register={register}
                 formCss={"font-bold text-2xl"}
@@ -69,11 +66,11 @@ export function PostPillar({
                 inputValidations={{
                     required: "Please enter a value"
                 }}
+
                 marginTop={"mt-5"}
-                labelSize={"text-lg lg:text-3xl"}
-                labelColour={"text-black"}
                 containerPaddingX={"px-4"}
                 textareaCss={"border h-32 rounded px-4"}
+                
                 errors={errors}
                 register={register}
                 formCss={"font-bold text-2xl"}

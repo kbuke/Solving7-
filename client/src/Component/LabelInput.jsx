@@ -9,13 +9,10 @@ export function LabelInput({
 
     // CSS Inputs
     marginTop,
-    inputHeight,
-    inputWidth,
-    labelSize,
-    labelColour,
     containerPaddingX,
-    inputBorder,
     textareaCss,
+    inputCss,
+    labelCss,
 
     // Form imports
     errors,
@@ -31,7 +28,7 @@ export function LabelInput({
                 className={`flex flex-col ${marginTop} ${containerPaddingX}`}
             >
                 <label
-                    className={`${labelColour} ${labelSize}`}
+                    className={labelCss}
                 >
                     {labelText}
                 </label>
@@ -45,7 +42,7 @@ export function LabelInput({
                     : <input 
                         type={inputType}
                         placeholder={placeholderText}
-                        className={`bg-white rounded ${inputHeight} pl-4 ${inputWidth} ${inputBorder}`}
+                        className={inputCss}
                         {...register(inputName, inputValidations)}
                     />
                 }
