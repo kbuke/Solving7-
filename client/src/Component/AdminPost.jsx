@@ -7,6 +7,7 @@ import { useState } from "react"
 import { PostTeam } from "../Pages/AdminDashboard/Components/Teams/PostTeam"
 import { PostEmployee } from "../Pages/AdminDashboard/Components/Employees/PostEmployee"
 import { PostSustainableGoal } from "../Pages/AdminDashboard/Components/UnSustainabilityGoals/PostSustainableGoal"
+import { PostProduct } from "../Pages/AdminDashboard/Components/Products/PostProduct"
 
 export function AdminPost({
   topic,
@@ -59,6 +60,13 @@ export function AdminPost({
         setState: setUnGoals,
         component: PostSustainableGoal,
         props: {unGoals, setUnGoals, register, errors}
+    },
+
+    products: {
+        endpoint: "/api/products",
+        setState: setAllProducts,
+        component: PostProduct,
+        props: {allProducts, setAllProducts, register, errors}
     }
   }
 
