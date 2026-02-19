@@ -94,9 +94,8 @@ export function LoginPg(){
                         required: "Please enter a value"
                     }}
                     marginTop={"mt-5"}
-                    inputHeight={"h-8 lg:h-12"}
-                    labelSize={"text-lg lg:text-3xl"}
-                    inputWidth={"lg:w-[60%]"}
+                    labelCss={"text-white text-lg uppercase lg:text-3xl"}
+                    inputCss={"bg-white rounded px-4 h-12 lg:h-16 lg:text-xl lg:w-[60%]"}
                     errors={errors}
                     register={register}
                     formCss={"font-bold text-2xl"}
@@ -111,9 +110,8 @@ export function LoginPg(){
                         required: "Please enter a value"
                     }}
                     marginTop={"mt-5"}
-                    inputHeight={"h-8 lg:h-12"}
-                    labelSize={"text-lg lg:text-3xl"}
-                    inputWidth={"lg:w-[60%]"}
+                    labelCss={"text-white text-lg uppercase lg:text-3xl"}
+                    inputCss={"bg-white rounded px-4 h-12 lg:h-16 lg:text-xl lg:w-[60%]"}
                     errors={errors}
                     register={register}
                     formCss={"font-bold text-2xl"}

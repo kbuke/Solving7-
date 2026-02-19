@@ -1,3 +1,4 @@
+import { Controller } from "react-hook-form";
 import { FormGroup } from "./FormGroup";
 
 export function LabelInput({
@@ -6,6 +7,7 @@ export function LabelInput({
     placeholderText,
     inputName,
     inputValidations,
+    selectArray,
 
     // CSS Inputs
     marginTop,
@@ -13,6 +15,8 @@ export function LabelInput({
     textareaCss,
     inputCss,
     labelCss,
+    selectCss,
+    optionCss,
 
     // Form imports
     errors,
@@ -39,6 +43,32 @@ export function LabelInput({
                         className={`${textareaCss}`}
                         {...register(inputName, inputValidations)}
                     />
+                    : inputType === "select"
+                        ? <Controller 
+                            name={inputName}    
+                            control={control}
+                            rules={inputValidations}
+                            render={({field}) => (
+                                <select
+                                    {...field}
+                                    className={selectCss}
+                                >
+                                    <option value="">
+                                        {placeholderText}
+                                    </option>
+
+                                    {selectArray.map((option, index) => (
+                                        <option
+                                            key={index}
+                                            value={option.value}
+                                            className={optionCss}
+                                        >
+                                            {option.label}
+                                        </option>
+                                    ))}
+                                </select>
+                            )}
+                        />
                     : <input 
                         type={inputType}
                         placeholder={placeholderText}

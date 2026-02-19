@@ -1,5 +1,5 @@
-import { AdminPopUpContents } from "../../../Component/AdminPopUpContents"
-import { unGoalIcon } from "../../../Component/unGoalIcon"
+import { AdminPopUpContents } from "../../../../Component/AdminPopUpContents"
+import { unGoalIcon } from "../../../../Component/unGoalIcon"
 
 export function AdminSustainability({
     unGoals

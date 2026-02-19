@@ -1,5 +1,5 @@
-import { AdminPopUpContents } from "../../../Component/AdminPopUpContents"
-import { ProductImg } from "../../../Component/ProductImg"
+import { AdminPopUpContents } from "../../../../Component/AdminPopUpContents"
+import { ProductImg } from "../../../../Component/ProductImg"
 
 export function AdminProducts({
     allProducts

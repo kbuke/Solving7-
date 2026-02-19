@@ -1,5 +1,5 @@
-import { AdminPopUpContents } from "../../../Component/AdminPopUpContents"
-import { PillarImg } from "../../../Component/PillarImg"
+import { AdminPopUpContents } from "../../../../Component/AdminPopUpContents"
+import { PillarImg } from "../../../../Component/PillarImg"
 
 export function AdminPillars({
     allPillars

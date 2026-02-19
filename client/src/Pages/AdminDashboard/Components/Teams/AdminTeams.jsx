@@ -1,5 +1,5 @@
-import { AdminPopUpContents } from "../../../Component/AdminPopUpContents"
-import { TeamsImg } from "../../../Component/TeamsImg"
+import { AdminPopUpContents } from "../../../../Component/AdminPopUpContents"
+import { TeamsImg } from "../../../../Component/TeamsImg"
 
 export function AdminTeams({
     allTeams
