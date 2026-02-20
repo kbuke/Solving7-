@@ -6,7 +6,9 @@ export function AdminPopUpContents({
     relationInstances,
     relationType,
     setPostRelation,
-    setSelectedInstance
+    setSelectedInstanceRelation, //this is for selecting the instance for a relational model
+    setSelectedInstance,
+    setAction
 }){
     //Render the contents of all models onto the pop-up
     return(
@@ -67,7 +69,7 @@ export function AdminPopUpContents({
                                     className="bg-green-600/80 text-white px-2 rounded h-10 lg:w-[20%] lg:self-center lg:h-14 cursor-pointer hover:-translate-y-2 duration-200"
                                     onClick={() => {
                                         setPostRelation(true)
-                                        setSelectedInstance(instance)
+                                        setSelectedInstanceRelation(instance)
                                     }}
                                 >
                                     Add {relationType}
@@ -88,6 +90,10 @@ export function AdminPopUpContents({
                         px-4 rounded text-white bg-blue-600/60 w-[30%] h-8 uppercase cursor-pointer
                         lg:w-[10%] lg:h-15 lg:text-2xl hover:-translate-y-2 duration-200
                     "
+                    onClick={() => {
+                        setSelectedInstance(instance)
+                        setAction("patch")
+                    }}
                 >
                     Edit
                 </button>
@@ -97,6 +103,10 @@ export function AdminPopUpContents({
                         px-4 rounded text-white bg-red-600/80 w-[30%] h-8 uppercase cursor-pointer
                         lg:w-[10%] lg:h-15 lg:text-2xl hover:-translate-y-2 duration-200
                     "
+                    onClick={() => {
+                        setSelectedInstance(instance)
+                        setAction("delete")
+                    }}
                 >
                     Delete
                 </button>

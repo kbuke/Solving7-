@@ -5,7 +5,9 @@ import { PostSustainablePillar } from "./PostSustainablePillar"
 import { useOutletContext } from "react-router"
 
 export function AdminPillars({
-    allPillars
+    allPillars,
+    setSelectedInstance, 
+    setAction
 }){
     const [postSustainableGoal, setPostSustainableGoal] = useState(false)
     const [selectedPillar, setSelectedPillar] = useState()
@@ -86,7 +88,9 @@ export function AdminPillars({
                         relationInstances={renderSustainableGoals}
                         relationType={"Sustainability Goals"}
                         setPostRelation={setPostSustainableGoal}
-                        setSelectedInstance={setSelectedPillar}
+                        setSelectedInstanceRelation={setSelectedPillar}
+                        setSelectedInstance={setSelectedInstance}
+                        setAction={setAction}
                     />
                 )
             })

@@ -7,6 +7,7 @@ import {AdminSustainability} from "../Pages/AdminDashboard/Components/UnSustaina
 import {AdminProducts} from "../Pages/AdminDashboard/Components/Products/AdminProducts"
 import { useState } from "react"
 import { AdminPost } from "./AdminPost"
+import { AdminDelete } from "./AdminDelete"
 
 export function AdminPopUp({
     topic,
@@ -27,6 +28,7 @@ export function AdminPopUp({
     setLoading
 }){
     const [action, setAction] = useState(null)
+    const [selectedInstance, setSelectedInstance] = useState()
 
     const componentMap = {
         pillars: AdminPillars,
@@ -37,11 +39,11 @@ export function AdminPopUp({
     }
 
     const propsMap = {
-        pillars: {allPillars},
-        teams: {allTeams},
-        employees: {allEmployees},
-        sustainabilityGoals: {unGoals},
-        products: {allProducts}
+        pillars: {allPillars, setSelectedInstance, setAction},
+        teams: {allTeams, setSelectedInstance, setAction},
+        employees: {allEmployees, setSelectedInstance, setAction},
+        sustainabilityGoals: {unGoals, setSelectedInstance, setAction},
+        products: {allProducts, setSelectedInstance, setAction}
     }
 
     const SelectedComponent = componentMap[topic]
@@ -112,6 +114,17 @@ export function AdminPopUp({
                         allProducts={allProducts}
                         setAllProducts={setAllProducts}
                         setLoading={setLoading}
+                    />
+                    : action === "delete"
+                    ? <AdminDelete 
+                        topic={topic}
+                        setAction={setAction}
+                        selectedInstance={selectedInstance}
+                        setAllTeams={setAllTeams}
+                        setAllPillars={setAllPillars}
+                        setAllEmployees={setAllEmployees}
+                        setUnGoals={setUnGoals}
+                        setAllProducts={setAllProducts}
                     />
                     : SelectedComponent && (
                         <SelectedComponent {...propsMap[topic]} />

@@ -2,7 +2,9 @@ import { AdminPopUpContents } from "../../../../Component/AdminPopUpContents"
 import { TeamsImg } from "../../../../Component/TeamsImg"
 
 export function AdminTeams({
-    allTeams
+    allTeams,
+    setSelectedInstance, 
+    setAction
 }){
 
     return(
@@ -13,6 +15,7 @@ export function AdminTeams({
             return(
                 <AdminPopUpContents 
                     key={index}
+                    instance={team}
                     instanceImg={teamImg}
                     instanceName={teamName}
                     instanceText={[
@@ -21,6 +24,8 @@ export function AdminTeams({
                             text: teamInfo
                         }
                     ]}
+                    setSelectedInstance={setSelectedInstance}
+                    setAction={setAction}
                 />
             )
         })
