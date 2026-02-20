@@ -5,6 +5,7 @@ import { faChevronCircleLeft } from "@fortawesome/free-solid-svg-icons"
 import { usePatch } from "../CustomHooks/usePatch"
 import { PillarInput } from "../Pages/AdminDashboard/Components/Pillars/PillarInput"
 import { EmployeeInput } from "../Pages/AdminDashboard/Components/Employees/EmployeeInput"
+import { SustainableInputs } from "../Pages/AdminDashboard/Components/UnSustainabilityGoals/SustainableInputs"
 
 export function AdminPatch({
     topic, 
@@ -61,7 +62,9 @@ export function AdminPatch({
             endpoint: `/api/sustainability/${selectedInstance?.id}`,
             selectedId: selectedInstance?.id,
             selectedTitle: selectedInstance?.goal,
-            setState: setUnGoals
+            setState: setUnGoals,
+            component: SustainableInputs,
+            props: {reset, selectedInstance, setAction, isPatch, register}
         },
     
         products: {

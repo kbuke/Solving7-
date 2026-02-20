@@ -19,8 +19,6 @@ export function EmployeeInput({
         }
     ))
 
-    console.log(selectedInstance)
-
     const patchEmployeeInput = [
         {
             key: "memberName",
