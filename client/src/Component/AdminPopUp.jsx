@@ -132,6 +132,7 @@ export function AdminPopUp({
                         topic={topic}
                         setAction={setAction}
                         selectedInstance={selectedInstance}
+                        allTeams={allTeams}
                         setAllTeams={setAllTeams}
                         setAllPillars={setAllPillars}
                         setAllEmployees={setAllEmployees}

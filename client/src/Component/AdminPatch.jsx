@@ -4,11 +4,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faChevronCircleLeft } from "@fortawesome/free-solid-svg-icons"
 import { usePatch } from "../CustomHooks/usePatch"
 import { PillarInput } from "../Pages/AdminDashboard/Components/Pillars/PillarInput"
+import { EmployeeInput } from "../Pages/AdminDashboard/Components/Employees/EmployeeInput"
 
 export function AdminPatch({
     topic, 
     setAction,
     selectedInstance,
+    allTeams,
     setAllTeams,
     setAllPillars,
     setAllEmployees,
@@ -16,6 +18,8 @@ export function AdminPatch({
     setAllProducts
 }){
     const isPatch = true
+
+    console.log(selectedInstance)
 
     const {
         register,
@@ -48,7 +52,9 @@ export function AdminPatch({
             endpoint: `/api/members/${selectedInstance?.id}`,
             selectedId: selectedInstance?.id,
             selectedTitle: selectedInstance?.name,
-            setState: setAllEmployees
+            setState: setAllEmployees,
+            component: EmployeeInput,
+            props: {reset, selectedInstance, setAction, isPatch, register, allTeams, control}
         },
 
         sustainabilityGoals: {

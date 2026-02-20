@@ -1,14 +1,14 @@
-import { PostPillar } from "../Pages/AdminDashboard/Components/Pillars/PostPillar"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faChevronCircleLeft } from "@fortawesome/free-solid-svg-icons"
 import { useForm } from "react-hook-form"
 import { usePost } from "../CustomHooks/usePost"
 import { useState } from "react"
-import { PostTeam } from "../Pages/AdminDashboard/Components/Teams/PostTeam"
-import { PostEmployee } from "../Pages/AdminDashboard/Components/Employees/PostEmployee"
-import { PostSustainableGoal } from "../Pages/AdminDashboard/Components/UnSustainabilityGoals/PostSustainableGoal"
-import { PostProduct } from "../Pages/AdminDashboard/Components/Products/PostProduct"
+// import { PostEmployee } from "../Pages/AdminDashboard/Components/Employees/PostEmployee"
+// import { PostSustainableGoal } from "../Pages/AdminDashboard/Components/UnSustainabilityGoals/PostSustainableGoal"
+// import { PostProduct } from "../Pages/AdminDashboard/Components/Products/PostProduct"
 import { TeamInputs } from "../Pages/AdminDashboard/Components/Teams/TeamInputs"
+import { PillarInput } from "../Pages/AdminDashboard/Components/Pillars/PillarInput"
+import { EmployeeInput } from "../Pages/AdminDashboard/Components/Employees/EmployeeInput"
 
 export function AdminPost({
   topic,
@@ -38,7 +38,7 @@ export function AdminPost({
     pillars: {
       endpoint: "/api/pillars",
       setState: setAllPillars,
-      component: PostPillar,
+      component: PillarInput,
       props: { allPillars, setAllPillars, register, errors },
     },
 
@@ -52,21 +52,22 @@ export function AdminPost({
     employees: {
         endpoint: "/api/members",
         setState: setAllEmployees,
-        component: PostEmployee,
-        props: {allEmployees, setAllEmployees, allTeams, register, errors, control}
+        component: EmployeeInput,
+        // component: PostEmployee,
+        props: {allEmployees, setAllEmployees, allTeams, register, errors, control, allTeams, control}
     },
 
     sustainabilityGoals: {
         endpoint: "/api/sustainability",
         setState: setUnGoals,
-        component: PostSustainableGoal,
+        // component: PostSustainableGoal,
         props: {unGoals, setUnGoals, register, errors}
     },
 
     products: {
         endpoint: "/api/products",
         setState: setAllProducts,
-        component: PostProduct,
+        // component: PostProduct,
         props: {allProducts, setAllProducts, register, errors}
     }
   }

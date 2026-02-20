@@ -1,4 +1,3 @@
-import { text } from "@fortawesome/fontawesome-svg-core"
 import { AdminPopUpContents } from "../../../../Component/AdminPopUpContents"
 import { EmployeeImg } from "../../../../Component/EmployeeImg"
 
