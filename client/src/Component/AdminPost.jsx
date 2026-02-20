@@ -8,6 +8,7 @@ import { PostTeam } from "../Pages/AdminDashboard/Components/Teams/PostTeam"
 import { PostEmployee } from "../Pages/AdminDashboard/Components/Employees/PostEmployee"
 import { PostSustainableGoal } from "../Pages/AdminDashboard/Components/UnSustainabilityGoals/PostSustainableGoal"
 import { PostProduct } from "../Pages/AdminDashboard/Components/Products/PostProduct"
+import { TeamInputs } from "../Pages/AdminDashboard/Components/Teams/TeamInputs"
 
 export function AdminPost({
   topic,
@@ -44,7 +45,7 @@ export function AdminPost({
     teams: {
       endpoint: "/api/teams",
       setState: setAllTeams,
-      component: PostTeam,
+      component: TeamInputs,
       props: { allTeams, setAllTeams, register, errors },
     },
 

@@ -1,10 +1,12 @@
-import { faChevronCircleLeft } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useForm } from "react-hook-form";
-import { useDelete } from "../CustomHooks/useDelete";
+import { TeamInputs } from "../Pages/AdminDashboard/Components/Teams/TeamInputs"
+import { useForm } from "react-hook-form"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faChevronCircleLeft } from "@fortawesome/free-solid-svg-icons"
+import { usePatch } from "../CustomHooks/usePatch"
+import { PillarInput } from "../Pages/AdminDashboard/Components/Pillars/PillarInput"
 
-export function AdminDelete({
-    topic,
+export function AdminPatch({
+    topic, 
     setAction,
     selectedInstance,
     setAllTeams,
@@ -13,26 +15,33 @@ export function AdminDelete({
     setUnGoals,
     setAllProducts
 }){
+    const isPatch = true
+
     const {
+        register,
         handleSubmit,
-        formState: {errors}
+        control,
+        formState: {errors},
+        reset
     } = useForm()
 
-    console.log(selectedInstance)
-
-    const deleteConfig = {
+    const patchConfig = {
         pillars: {
             endpoint: `/api/pillars/${selectedInstance?.id}`,
             selectedId: selectedInstance?.id,
             selectedTitle: selectedInstance?.name,
-            setState: setAllPillars
+            setState: setAllPillars,
+            component: PillarInput,
+            props: {reset, selectedInstance, setAction, isPatch, register}
         },
 
         teams: {
             endpoint: `/api/teams/${selectedInstance?.id}`,
             selectedId: selectedInstance?.id,
             selectedTitle: selectedInstance?.name,
-            setState: setAllTeams
+            setState: setAllTeams,
+            component: TeamInputs,
+            props: {reset, selectedInstance, setAction, isPatch, register},
         },
 
         employees: {
@@ -57,44 +66,41 @@ export function AdminDelete({
         }
     }
 
-    const current = deleteConfig[topic]
+    const current = patchConfig[topic]
 
-    const handleInstanceDelete = () => {
-        useDelete(
-            current?.endpoint,
-            current?.setState,
-            current?.selectedId,
+    const handleInstancePatch = (formData) => {
+        usePatch(
+            formData,
+            current.endpoint,
+            current.selectedId,
+            current.setState,
             setAction
         )
     }
 
     return(
-        <form
-            onSubmit={handleSubmit(handleInstanceDelete)}
-        >
+        <form onSubmit={handleSubmit(handleInstancePatch)}>
             <div className="flex gap-4 px-4 py-2 items-center border-b border-dashed">
-                <FontAwesomeIcon 
+                <FontAwesomeIcon
                     icon={faChevronCircleLeft}
-                    className="text-2xl text-blue-600 cursor-pointer"
+                    className="text-2xl text-blue-600"
                     onClick={() => setAction(null)}
                 />
 
                 <h1 className="text-2xl uppercase">
-                    Delete {current?.selectedTitle}
+                    Edit
                 </h1>
             </div>
 
-            <div
-                className="flex justify-center mt-4"
-            >
-                <button
-                    className="
-                        bg-red-600/80 rounded px-4 w-[60%] h-12 text-white uppercase
-                        lg:w-[16%] lg:h-16 cursor-pointer hover:-translate-y-2 duration-200
-                    "
+
+            {current?.component && <current.component {...current.props} />}
+
+            <div className="flex justify-center text-white">
+                <button 
+                    className="uppercase bg-green-600/80 mt-4 mb-4 rounded px-4 h-10 cursor-pointer hover:-translate-y-2 duration-200"
                     type="submit"
                 >
-                    Confirm Deletion
+                    Edit
                 </button>
             </div>
         </form>

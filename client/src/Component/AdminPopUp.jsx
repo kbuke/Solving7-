@@ -8,6 +8,7 @@ import {AdminProducts} from "../Pages/AdminDashboard/Components/Products/AdminPr
 import { useState } from "react"
 import { AdminPost } from "./AdminPost"
 import { AdminDelete } from "./AdminDelete"
+import { AdminPatch } from "./AdminPatch"
 
 export function AdminPopUp({
     topic,
@@ -117,6 +118,17 @@ export function AdminPopUp({
                     />
                     : action === "delete"
                     ? <AdminDelete 
+                        topic={topic}
+                        setAction={setAction}
+                        selectedInstance={selectedInstance}
+                        setAllTeams={setAllTeams}
+                        setAllPillars={setAllPillars}
+                        setAllEmployees={setAllEmployees}
+                        setUnGoals={setUnGoals}
+                        setAllProducts={setAllProducts}
+                    />
+                    : action === "patch"
+                    ? <AdminPatch 
                         topic={topic}
                         setAction={setAction}
                         selectedInstance={selectedInstance}
