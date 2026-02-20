@@ -2,7 +2,9 @@ import { AdminPopUpContents } from "../../../../Component/AdminPopUpContents"
 import { unGoalIcon } from "../../../../Component/unGoalIcon"
 
 export function AdminSustainability({
-    unGoals
+    unGoals,
+    setSelectedInstance, 
+    setAction
 }){
     return(
         unGoals?.map((uG, index) => {
@@ -14,6 +16,7 @@ export function AdminSustainability({
             return(
                 <AdminPopUpContents 
                     key={index}
+                    instance={uG}
                     instanceImg={unImg}
                     instanceName={unGoal}
                     instanceText={[
@@ -22,6 +25,8 @@ export function AdminSustainability({
                             text: unInfo
                         }
                     ]}
+                    setSelectedInstance={setSelectedInstance}
+                    setAction={setAction}
                 />
             )
         })

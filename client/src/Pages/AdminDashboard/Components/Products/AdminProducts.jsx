@@ -2,7 +2,9 @@ import { AdminPopUpContents } from "../../../../Component/AdminPopUpContents"
 import { ProductImg } from "../../../../Component/ProductImg"
 
 export function AdminProducts({
-    allProducts
+    allProducts,
+    setSelectedInstance, 
+    setAction
 }){
     return(
         allProducts?.map((product, index) => {
@@ -14,6 +16,7 @@ export function AdminProducts({
             return(
                 <AdminPopUpContents 
                     key={index}
+                    instance={product}
                     instanceImg={productImg}
                     instanceName={productName}
                     instanceText={[
@@ -22,6 +25,8 @@ export function AdminProducts({
                             text: productInfo
                         }
                     ]}
+                    setSelectedInstance={setSelectedInstance}
+                    setAction={setAction}
                 />
             )
         })
