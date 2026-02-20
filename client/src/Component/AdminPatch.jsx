@@ -6,6 +6,7 @@ import { usePatch } from "../CustomHooks/usePatch"
 import { PillarInput } from "../Pages/AdminDashboard/Components/Pillars/PillarInput"
 import { EmployeeInput } from "../Pages/AdminDashboard/Components/Employees/EmployeeInput"
 import { SustainableInputs } from "../Pages/AdminDashboard/Components/UnSustainabilityGoals/SustainableInputs"
+import { ProductInput } from "../Pages/AdminDashboard/Components/Products/ProductInput"
 
 export function AdminPatch({
     topic, 
@@ -71,7 +72,9 @@ export function AdminPatch({
             endpoint: `/api/products/${selectedInstance?.id}`,
             selectedId: selectedInstance?.id,
             selectedTitle: selectedInstance?.name,
-            setState: setAllProducts
+            setState: setAllProducts,
+            component: ProductInput,
+            props: {reset, selectedInstance, setAction, isPatch, register}
         }
     }
 

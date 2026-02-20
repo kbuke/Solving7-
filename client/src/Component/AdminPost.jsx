@@ -9,6 +9,8 @@ import { useState } from "react"
 import { TeamInputs } from "../Pages/AdminDashboard/Components/Teams/TeamInputs"
 import { PillarInput } from "../Pages/AdminDashboard/Components/Pillars/PillarInput"
 import { EmployeeInput } from "../Pages/AdminDashboard/Components/Employees/EmployeeInput"
+import { SustainableInputs } from "../Pages/AdminDashboard/Components/UnSustainabilityGoals/SustainableInputs"
+import { ProductInput } from "../Pages/AdminDashboard/Components/Products/ProductInput"
 
 export function AdminPost({
   topic,
@@ -53,21 +55,20 @@ export function AdminPost({
         endpoint: "/api/members",
         setState: setAllEmployees,
         component: EmployeeInput,
-        // component: PostEmployee,
         props: {allEmployees, setAllEmployees, allTeams, register, errors, control, allTeams, control}
     },
 
     sustainabilityGoals: {
         endpoint: "/api/sustainability",
         setState: setUnGoals,
-        // component: PostSustainableGoal,
+        component: SustainableInputs,
         props: {unGoals, setUnGoals, register, errors}
     },
 
     products: {
         endpoint: "/api/products",
         setState: setAllProducts,
-        // component: PostProduct,
+        component: ProductInput,
         props: {allProducts, setAllProducts, register, errors}
     }
   }

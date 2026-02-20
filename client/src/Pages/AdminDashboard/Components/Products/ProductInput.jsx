@@ -1,15 +1,36 @@
+import { DisplayCurrentValue } from "../../../../Component/DisplayCurrentValue"
 import { LabelInput } from "../../../../Component/LabelInput"
 
-export function PostSustainableGoal({
-    unGoals, setUnGoals, register, errors
+export function ProductInput({
+    allProducts,
+    setAllProducts,
+    register,
+    errors,
+    reset,
+    selectedInstance,
+    isPatch
 }){
+    const patchProductInputs = [
+        {
+            key: "productName",
+            accessor: "name"
+        },
+
+        {
+            key: "productInfo",
+            accessor: "info"
+        }
+    ]
+
+    DisplayCurrentValue(isPatch, patchProductInputs, selectedInstance, reset)
+
     return(
         <div>
             <LabelInput
-                labelText={"UN Goal"}
+                labelText={"Product Name"}
                 inputType={"text"}
-                placeholderText={"Please Enter UN Goal"}
-                inputName={"sustainableGoal"}
+                placeholderText={"Please Enter Product Name"}
+                inputName={"productName"}
                 inputValidations={{
                     required: "Please Enter a value",
                 }}
@@ -21,14 +42,14 @@ export function PostSustainableGoal({
                 register={register}
                 formCss={"font-bold text-2xl"}
             />
-
+        
             <LabelInput
-                labelText={"Goal Info"}
+                labelText={"Product Info"}
                 inputType={"textarea"}
-                placeholderText={"Please Enter Goal Info"}
-                inputName={"sustainableInfo"}
+                placeholderText={"Please Enter Product Info"}
+                inputName={"productInfo"}
                 inputValidations={{
-                    required: "Please Enter a value",
+                    required: "Please enter a value",
                 }}
                 marginTop={"mt-5"}
                 containerPaddingX={"px-4"}

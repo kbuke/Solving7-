@@ -68,14 +68,18 @@ export function AdminPopUpContents({
                                 <button
                                     className="bg-green-600/80 text-white px-2 rounded h-10 lg:w-[20%] lg:self-center lg:h-14 cursor-pointer hover:-translate-y-2 duration-200"
                                     onClick={() => {
-                                        setPostRelation(true)
+                                        setPostRelation("post")
                                         setSelectedInstanceRelation(instance)
                                     }}
                                 >
                                     Add {relationType}
                                 </button>
                             </div>
-                            {relationInstances()}
+                            <div
+                                className="border-b border-dashed py-2"
+                            >
+                                {relationInstances()}
+                            </div>
                         </div>
                         : null
                     }

@@ -8,7 +8,8 @@ export function PostSustainablePillar({
     allPillarGoals,
     setAllPillarGoals,
     postSustainableGoal, 
-    setPostSustainableGoal,
+    // setPostSustainableGoal,
+    setSustainableGoalAction,
     unGoals,
     selectedPillar,
     setSelectedPillar,
@@ -52,7 +53,7 @@ export function PostSustainablePillar({
             onSuccess: (newPillarGoal) => {
                 setAllPillarGoals(prev => [...prev, newPillarGoal])
                 setSelectedPillar()
-                setPostSustainableGoal(false)
+                setSustainableGoalAction(false)
             }
         })
     }
@@ -66,7 +67,7 @@ export function PostSustainablePillar({
                     icon={faChevronCircleLeft}
                     className="text-2xl text-blue-600 cursor-pointer"
                     onClick={() => {
-                        setPostSustainableGoal(false)
+                        setSustainableGoalAction(false)
                         setSelectedPillar()
                     }}
                 />
