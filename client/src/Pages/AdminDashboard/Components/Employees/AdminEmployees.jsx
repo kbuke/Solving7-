@@ -3,7 +3,9 @@ import { AdminPopUpContents } from "../../../../Component/AdminPopUpContents"
 import { EmployeeImg } from "../../../../Component/EmployeeImg"
 
 export function AdminEmployees({
-    allEmployees
+    allEmployees,
+    setSelectedInstance, 
+    setAction
 }){
 
     return allEmployees?.map((employee, index) => {
@@ -15,6 +17,7 @@ export function AdminEmployees({
         return(
             <AdminPopUpContents 
                 key={index}
+                instance={employee}
                 instanceImg={employeeImg}
                 instanceName={employeeName}
                 instanceText={[
@@ -28,6 +31,8 @@ export function AdminEmployees({
                         text: employeeInfo
                     }
                 ]}
+                setSelectedInstance={setSelectedInstance}
+                setAction={setAction}
             />
         )
     })
