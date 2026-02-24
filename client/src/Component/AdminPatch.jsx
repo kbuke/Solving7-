@@ -7,6 +7,7 @@ import { PillarInput } from "../Pages/AdminDashboard/Components/Pillars/PillarIn
 import { EmployeeInput } from "../Pages/AdminDashboard/Components/Employees/EmployeeInput"
 import { SustainableInputs } from "../Pages/AdminDashboard/Components/UnSustainabilityGoals/SustainableInputs"
 import { ProductInput } from "../Pages/AdminDashboard/Components/Products/ProductInput"
+import { NewsInput } from "../Pages/AdminDashboard/Components/News/NewsInputs"
 
 export function AdminPatch({
     topic, 
@@ -17,7 +18,8 @@ export function AdminPatch({
     setAllPillars,
     setAllEmployees,
     setUnGoals,
-    setAllProducts
+    setAllProducts,
+    setAllNews
 }){
     const isPatch = true
 
@@ -74,6 +76,15 @@ export function AdminPatch({
             selectedTitle: selectedInstance?.name,
             setState: setAllProducts,
             component: ProductInput,
+            props: {reset, selectedInstance, setAction, isPatch, register}
+        },
+
+        news: {
+            endpoint: `/api/news/${selectedInstance?.id}`,
+            selectedId: selectedInstance?.id,
+            selectedTitle: selectedInstance?.title,
+            setState: setAllNews,
+            component: NewsInput,
             props: {reset, selectedInstance, setAction, isPatch, register}
         }
     }
