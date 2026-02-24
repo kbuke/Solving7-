@@ -1,53 +1,52 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import { useDelete } from "../../../../CustomHooks/useDelete";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faChevronCircleLeft } from "@fortawesome/free-solid-svg-icons"
-import { useDelete } from "../../../../CustomHooks/useDelete"
-import { useForm } from "react-hook-form"
 
-export function DeleteSustainablePillar({
-    allPillarGoals,
-    setAllPillarGoals,
-    selectedGoalId,
-    setSelectedGoalId,
-    selectedPillarId,
-    setSelectedPillarId,
-    setSustainableGoalAction
+export function DeleteProductPillar({
+    allProductPillars,
+    setAllProductPillars,
+    selectedProductId,
+    setSelectedProductId,
+    selectedPillarId, 
+    setSelecredPillarId,
+    setProductPillarAction
 }){
-    const [selectedPillarGoal, setSelectedPillarGoal] = useState()
-    
+    const [selectedProductPillar, setSelectedProductPillar] = useState()
+
     const {
         handleSubmit,
         formState: {errors}
     } = useForm()
 
     useEffect(() => (
-        setSelectedPillarGoal(allPillarGoals.filter(pg => pg.sustainable_id === selectedGoalId && pg.pillar_id === selectedPillarId))
+        setSelectedProductPillar(allProductPillars.filter(pp => pp.pillar_id === selectedPillarId && pp.product_id === selectedProductId))
     ), [])
 
+    const deleteInstanceId = selectedProductPillar?.[0].id
 
-    const deleteInstanceId = selectedPillarGoal?.[0].id
-
-    const handleDeletePillarGoal = () => {
+    const handleDeleteProductPillar = () => {
         useDelete(
-            `/api/sustainablepillar/${deleteInstanceId}`,
-            setAllPillarGoals,
+            `/api/productpillar/${deleteInstanceId}`,
+            setAllProductPillars,
             deleteInstanceId,
-            setSustainableGoalAction
+            setProductPillarAction
         )
     }
 
     return(
         <form
-            onSubmit={handleSubmit(handleDeletePillarGoal)}
+            onSubmit={handleSubmit(handleDeleteProductPillar)}
         >
             <div className="flex gap-4 px-4 py-2 items-center border-b border-dashed">
                 <FontAwesomeIcon
                     icon={faChevronCircleLeft}
                     className="text-2xl text-blue-600"
                     onClick={() => {
-                        setSustainableGoalAction()
-                        setSelectedGoalId()
-                        setSelectedPillarId()
+                        setProductPillarAction()
+                        setSelecredPillarId()
+                        setSelectedProductId()
                     }}
                 />
 

@@ -16,8 +16,6 @@ export function AdminPillars({
     const [selectedGoalId, setSelectedGoalId] = useState()
     const [selectedPillarId, setSelectedPillarId] = useState()
 
-    console.log(sustainableGoalAction)
-
     const appData = useOutletContext()
 
     const allPillarGoals = appData?.allPillarGoals
@@ -32,8 +30,6 @@ export function AdminPillars({
             ? <PostSustainablePillar 
                 allPillarGoals={allPillarGoals}
                 setAllPillarGoals={setAllPillarGoals}
-                // postSustainableGoal={postSustainableGoal}
-                // setPostSustainableGoal={setPostSustainableGoal}
                 setSustainableGoalAction = {setSustainableGoalAction}
                 unGoals={unGoals}
                 selectedPillar={selectedPillar}
@@ -64,7 +60,6 @@ export function AdminPillars({
                 const renderSustainableGoals = () => {
                     return(
                         pillarSustainableGoals?.map((pSG, index) => {
-                            console.log(pSG)
                             return(
                                 <div
                                     key={index}

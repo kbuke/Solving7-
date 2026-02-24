@@ -14,6 +14,7 @@ function App() {
   const [allProducts, setAllProducts] = useState()
   const [allPillarGoals, setAllPillarGoals] = useState()
   const [allEmails, setAllEmails] = useState()
+  const [allProductPillars, setAllProductPillars] = useState()
   
 
   // Fetch all values for each model
@@ -24,6 +25,7 @@ function App() {
   useFetch("/api/products", setAllProducts)
   useFetch("/api/sustainablepillar", setAllPillarGoals)
   useFetch("/api/emails", setAllEmails)
+  useFetch("/api/productpillar", setAllProductPillars)
 
   // Calculate the width of the screen at all times
   const screenWidth = CalcScreenWidth()
@@ -39,6 +41,7 @@ function App() {
     allProducts, setAllProducts,
     allPillarGoals, setAllPillarGoals,
     allEmails, setAllEmails,
+    allProductPillars, setAllProductPillars,
 
     screenWidth
   }
