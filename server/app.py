@@ -7,6 +7,7 @@ from resources.Pillars import Pillar, SpecificPillar
 from resources.Products import Products, SpecificProduct
 from resources.SustainableGoals import SustainableGoals, SpecificSustainableGoal
 from resources.SustainablePillar import SustainablePillar, SpecificSustainablePillar
+from resources.ProductPillars import ProductPillar, SpecificProductPillar
 from resources.AdminDashboard import AdminDashboard
 from resources.CheckAdmin import CheckAdmin
 from resources.Login import Login
@@ -30,6 +31,9 @@ add_resource(SpecificSustainableGoal, "/sustainability/<int:id>")
 
 add_resource(SustainablePillar, "/sustainablepillar")
 add_resource(SpecificSustainablePillar, "/sustainablepillar/<int:id>")
+
+add_resource(ProductPillar, "/productpillar")
+add_resource(SpecificProductPillar, "/productpillar/<int:id>")
 
 add_resource(Login, "/login")
 add_resource(Logout, "/logout")

@@ -10,7 +10,7 @@ export function ContactPg(){
         <section
             className="
                 md:h-[calc(100vh-7.5rem)]
-                lg:grid lg:grid-cols-[1fr_2fr]
+                lg:grid lg:grid-cols-[1fr_3fr]
                 overflow-hidden
             "
         >

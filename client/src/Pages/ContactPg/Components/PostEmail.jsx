@@ -33,7 +33,7 @@ export function PostEmail({
     return(
         <form
             className="
-                rounded mt-4 bg-gray-500/60 px-4 py-10
+                rounded mt-4 bg-gray-500/80 px-4 py-10
             "
             onSubmit={handleSubmit(handleEmailPost)}
         >
@@ -110,7 +110,7 @@ export function PostEmail({
                         className="mt-4 flex justify-center"
                     >
                         <button
-                            className="bg-green-600/80 text-white px-4 rounded-lg h-14 w-40 hover:-translate-y-2 duration-200 cursor-pointer"
+                            className="bg-green-600/90 text-white px-4 rounded-lg h-14 w-40 hover:-translate-y-2 duration-200 cursor-pointer"
                         >
                             Send Email
                         </button>

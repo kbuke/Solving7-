@@ -19,5 +19,6 @@ class SustainableGoalModel(db.Model, SerializerMixin):
     )
 
     serialize_rules=(
-        "-pillars.sustainable_pillars",
+        "-pillars.sustainable_goals",
+        "-pillars.products",
     )

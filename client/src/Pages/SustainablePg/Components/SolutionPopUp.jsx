@@ -42,7 +42,7 @@ export function SolutionPopUp({
             >
                 <img 
                     src={`/UN-PopUp/${selectedGoal?.id}.png`}
-                    className="h-180"
+                    className="h-200"
                 />
 
                 <div

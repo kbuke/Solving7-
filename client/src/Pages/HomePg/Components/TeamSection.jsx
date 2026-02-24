@@ -8,8 +8,6 @@ export function TeamSection({
 }){
     const [selectedTeam, setSelectedTeam] = useState()
 
-    console.log(selectedTeam)
-
     return(
         <section
             className="home-section"
@@ -23,24 +21,32 @@ export function TeamSection({
             </h1>
 
             <div
-                className="lg:grid lg:grid-cols-3 gap-10 mt-10 px-4 mb-10"
+                className="lg:grid lg:grid-cols-3 gap-10 mt-10 px-4 mb-10 items-center justify-items-center"
             >
                 {allTeams?.map((team, index) => {
                     const teamName = team?.name
                     return(
                         <div
-                            style={{backgroundImage: `url(${`/TeamImg/${teamName}.png`})`}}
-                            className="
-                                w-full h-50 border lg:border-none lg:h-80 bg-no-repeat bg-center bg-cover rounded flex flex-col justify-center items-center
-                                cursor-pointer hover:-translate-y-2 duration-200 mt-4 lg:mt-0
-                            "
                             key={index}
+                            className="
+                                rounded-xl flex flex-col text-center hover:-translate-y-2 duration-200 cursor-pointer
+                                h-80 w-100 items-center text-white
+                            "
                             onClick={() => setSelectedTeam(team)}
                         >
+                            <img 
+                                src={`/TeamImg/${teamName}.png`}
+                                className="rounded-t-xl"
+                            />
+
                             <div
-                                className="bg-black/80 text-white w-[80%] h-20 rounded flex justify-center items-center text-2xl uppercase"
+                                className="flex justify-center items-center bg-[rgba(0,120,0,1)] w-full h-full rounded-b-lg"
                             >
-                                {teamName}
+                                <h1
+                                    className="uppercase text-3xl py-4"
+                                >
+                                    {teamName}
+                                </h1>
                             </div>
                         </div>
                     )

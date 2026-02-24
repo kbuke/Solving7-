@@ -6,7 +6,6 @@ export function TeamPopUp({
     selectedTeam,
     setSelectedTeam
 }){
-    console.log(selectedTeam)
     const teamName = selectedTeam?.name
     const teamInfo = selectedTeam?.info
     const teamMembers = selectedTeam?.members

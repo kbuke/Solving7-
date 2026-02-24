@@ -6,7 +6,8 @@ export function ContactSection({
 }){
     return(
         <div
-            className="px-20 py-6"
+            style={{backgroundImage: `url(${"/bg-doodle.png"})`}}
+            className="px-20 py-6 bg-no-repeat bg-center bg-cover bg-black"
         >
             <h1
                 className="uppercase font-bold text-5xl tracking-widest"

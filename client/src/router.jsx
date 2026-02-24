@@ -7,6 +7,7 @@ import { PublicLayout } from "./Layout/PublicLayout";
 import { HomePg } from "./Pages/HomePg/HomePg";
 import { ContactPg } from "./Pages/ContactPg/ContactPg";
 import { SustainablePg } from "./Pages/SustainablePg/SustainablePg";
+import { PillarsPg } from "./Pages/PillarsPg/PillarsPg";
 
 
 export const router = createBrowserRouter([
@@ -20,7 +21,8 @@ export const router = createBrowserRouter([
                 children: [
                     {index: true, element: <HomePg />},
                     {path: "contact", element: <ContactPg />},
-                    {path: "sustainable", element: <SustainablePg />}
+                    {path: "sustainable", element: <SustainablePg />},
+                    {path: "pillars", element: <PillarsPg />}
                 ]
             },
 

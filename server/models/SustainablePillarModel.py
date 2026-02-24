@@ -11,3 +11,4 @@ class SustainablePillarModel(db.Model, SerializerMixin):
     id = db.Column(db.Integer, primary_key = True)
     pillar_id = many_to_many_id("pillars")
     sustainable_id = many_to_many_id("sustainable_goals") 
+ 

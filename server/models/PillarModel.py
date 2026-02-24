@@ -24,8 +24,16 @@ class PillarModel(db.Model, SerializerMixin):
         "sustainable_pillars"
     )
 
+    products = many_to_many_defined(
+        "ProductModel",
+        "pillars",
+        "product_pillars"
+    )
+
     serialize_rules=(
         "-sustainable_goals.pillars",
+        
+        "-products.pillars",
     )
 
     @validates("name")
