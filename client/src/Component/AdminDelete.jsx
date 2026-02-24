@@ -11,7 +11,8 @@ export function AdminDelete({
     setAllPillars,
     setAllEmployees,
     setUnGoals,
-    setAllProducts
+    setAllProducts,
+    setAllNews
 }){
     const {
         handleSubmit,
@@ -54,6 +55,13 @@ export function AdminDelete({
             selectedId: selectedInstance?.id,
             selectedTitle: selectedInstance?.name,
             setState: setAllProducts
+        },
+
+        news: {
+            endpoint: `/api/news/${selectedInstance?.id}`,
+            selectedId: selectedInstance?.id,
+            selectedTitle: selectedInstance?.title,
+            setState: setAllNews
         }
     }
 
