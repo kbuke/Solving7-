@@ -4,11 +4,11 @@ export function SustainableText(){
             className="block lg:grid lg:grid-cols-[3fr_2fr] gap-10"
         >
             <div>
-                <h1
+                {/* <h1
                     className="text-6xl uppercase tracking-[6px]"
                 >
                     UN Sustainable Goals
-                </h1>
+                </h1> */}
 
                 <p
                     className="home-text"

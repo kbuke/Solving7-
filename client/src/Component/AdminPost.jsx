@@ -8,6 +8,7 @@ import { PillarInput } from "../Pages/AdminDashboard/Components/Pillars/PillarIn
 import { EmployeeInput } from "../Pages/AdminDashboard/Components/Employees/EmployeeInput"
 import { SustainableInputs } from "../Pages/AdminDashboard/Components/UnSustainabilityGoals/SustainableInputs"
 import { ProductInput } from "../Pages/AdminDashboard/Components/Products/ProductInput"
+import { NewsInput } from "../Pages/AdminDashboard/Components/News/NewsInputs"
 
 export function AdminPost({
   topic,
@@ -22,6 +23,8 @@ export function AdminPost({
   setUnGoals,
   allProducts,
   setAllProducts,
+  allNews,
+  setAllNews,
   setLoading,
 }) {
   const [postSuccess, setPostSuccess] = useState(false)
@@ -67,6 +70,13 @@ export function AdminPost({
         setState: setAllProducts,
         component: ProductInput,
         props: {allProducts, setAllProducts, register, errors}
+    },
+
+    news: {
+      endpoint: "/api/news",
+      setState: setAllNews,
+      component: NewsInput,
+      props: {allNews, setAllNews, register, errors}
     }
   }
 

@@ -2,6 +2,7 @@ import { useState } from "react"
 import { TeamsImg } from "../../../Component/TeamsImg"
 import {PopUp} from "../../../Component/PopUp"
 import { TeamPopUp } from "./TeamPopUp"
+import { SectionHeading } from "../../../Component/SectionHeading"
 
 export function TeamSection({
     allTeams
@@ -12,13 +13,9 @@ export function TeamSection({
         <section
             className="home-section"
         >
-            <h1
-                className="
-                    text-6xl uppercase tracking-[6px]
-                "
-            >
-                Meet the Team
-            </h1>
+            <SectionHeading 
+                title={"Meet the Team"}
+            />
 
             <div
                 className="lg:grid lg:grid-cols-3 gap-10 mt-10 px-4 mb-10 items-center justify-items-center"

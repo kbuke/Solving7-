@@ -13,6 +13,7 @@ from resources.CheckAdmin import CheckAdmin
 from resources.Login import Login
 from resources.Logout import Logout
 from resources.Emails import EmailList
+from resources.News import NewsList, SpecificNews
 
 add_resource(Members, "/members")
 add_resource(SpecificMember, "/members/<int:id>")
@@ -42,6 +43,9 @@ add_resource(AdminDashboard, "/admin")
 add_resource(CheckAdmin, "/check-admin")
 
 add_resource(EmailList, "/emails")
+
+add_resource(NewsList, "/news")
+add_resource(SpecificNews, "/news/<int:id>")
 
 
 if __name__ == "__main__":

@@ -43,6 +43,12 @@ export function PillarInput({
                 inputName={"pillarName"}
                 inputValidations={{
                     required: "Please Enter a value",
+                    ...EnsureUniqueness({
+                        allInstances: allPillars,
+                        variable: "name",
+                        isPatch,
+                        selectedInstance
+                    })
                 }}
                 marginTop={"mt-5"}
                 containerPaddingX={"px-4"}

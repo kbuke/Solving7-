@@ -8,7 +8,7 @@ import { HomePg } from "./Pages/HomePg/HomePg";
 import { ContactPg } from "./Pages/ContactPg/ContactPg";
 import { SustainablePg } from "./Pages/SustainablePg/SustainablePg";
 import { PillarsPg } from "./Pages/PillarsPg/PillarsPg";
-
+import { ProductsPg } from "./Pages/ProductsPg/ProductsPg";
 
 export const router = createBrowserRouter([
     {
@@ -22,7 +22,8 @@ export const router = createBrowserRouter([
                     {index: true, element: <HomePg />},
                     {path: "contact", element: <ContactPg />},
                     {path: "sustainable", element: <SustainablePg />},
-                    {path: "pillars", element: <PillarsPg />}
+                    {path: "pillars", element: <PillarsPg />},
+                    {path: "products", element: <ProductsPg />}
                 ]
             },
 

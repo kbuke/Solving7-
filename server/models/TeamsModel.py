@@ -5,6 +5,9 @@ from helpers.Owns import owns
 
 from config import db
 
+from validators.validate_string import validate_string
+from validators.validate_uniqueness import validate_uniqueness
+
 class TeamModel(db.Model, SerializerMixin):
     __tablename__ = "teams"
 
@@ -16,3 +19,18 @@ class TeamModel(db.Model, SerializerMixin):
         "MemberModel",
         "team"
     )
+
+    @validates("name")
+    def validate_team(self, key, value):
+        value = validate_string(
+            value,
+            "Team Name"
+        )
+
+        return validate_uniqueness(
+            value,
+            self,
+            TeamModel,
+            key,
+            "Team Name"
+        )

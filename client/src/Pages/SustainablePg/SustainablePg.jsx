@@ -1,6 +1,7 @@
 import { useOutletContext } from "react-router";
 import { SustainableText } from "./Components/SustainableText";
 import { AchievedSustainableGoals } from "./Components/AchievedSustainableGoals";
+import { SectionHeading } from "../../Component/SectionHeading";
 
 export function SustainablePg(){
     const appData = useOutletContext()
@@ -16,6 +17,10 @@ export function SustainablePg(){
         <section
             className="md:py-10 md:px-20"
         >
+            <SectionHeading 
+                title={"UN Sustainable Goals"}
+            />
+
             <SustainableText />
 
             <AchievedSustainableGoals 

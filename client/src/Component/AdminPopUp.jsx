@@ -9,6 +9,7 @@ import { useState } from "react"
 import { AdminPost } from "./AdminPost"
 import { AdminDelete } from "./AdminDelete"
 import { AdminPatch } from "./AdminPatch"
+import { AdminNews } from "../Pages/AdminDashboard/Components/News/AdminNews"
 
 export function AdminPopUp({
     topic,
@@ -25,6 +26,8 @@ export function AdminPopUp({
     setUnGoals,
     allProducts,
     setAllProducts,
+    allNews,
+    setAllNews,
 
     setLoading
 }){
@@ -36,7 +39,8 @@ export function AdminPopUp({
         teams: AdminTeams,
         employees: AdminEmployees,
         sustainabilityGoals: AdminSustainability,
-        products: AdminProducts
+        products: AdminProducts,
+        news: AdminNews
     }
 
     const propsMap = {
@@ -44,7 +48,8 @@ export function AdminPopUp({
         teams: {allTeams, setSelectedInstance, setAction},
         employees: {allEmployees, setSelectedInstance, setAction},
         sustainabilityGoals: {unGoals, setSelectedInstance, setAction},
-        products: {allProducts, setSelectedInstance, setAction}
+        products: {allProducts, setSelectedInstance, setAction},
+        news: {allNews, setSelectedInstance, setAction}
     }
 
     const SelectedComponent = componentMap[topic]
@@ -132,6 +137,8 @@ export function AdminPopUp({
                         setUnGoals={setUnGoals}
                         allProducts={allProducts}
                         setAllProducts={setAllProducts}
+                        allNews={allNews}
+                        setAllNews={setAllNews}
                         setLoading={setLoading}
                     />
                     : action === "delete"
@@ -144,6 +151,7 @@ export function AdminPopUp({
                         setAllEmployees={setAllEmployees}
                         setUnGoals={setUnGoals}
                         setAllProducts={setAllProducts}
+                        setAllNews={setAllNews}
                     />
                     : action === "patch"
                     ? <AdminPatch 
@@ -156,6 +164,7 @@ export function AdminPopUp({
                         setAllEmployees={setAllEmployees}
                         setUnGoals={setUnGoals}
                         setAllProducts={setAllProducts}
+                        setAllNews={setAllNews}
                     />
                     : SelectedComponent && (
                         <SelectedComponent {...propsMap[topic]} />

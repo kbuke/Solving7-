@@ -1,3 +1,5 @@
+import { SectionHeading } from "../../../Component/SectionHeading";
+
 export function AboutSection({
     screenWidth
 }){
@@ -6,13 +8,9 @@ export function AboutSection({
         <section
             className="home-section"
         >
-            <h1
-                className="
-                    text-6xl uppercase tracking-[6px]
-                "
-            >
-                About Solving7
-            </h1>
+            <SectionHeading 
+                title={"About Solving7"}
+            />
 
             <div
                 className="lg:grid lg:grid-cols-[2fr_1fr] mt-0 lg:gap-10"
@@ -82,12 +80,11 @@ export function AboutSection({
                 </div>
 
                 <img 
-                    // src="/aboutDtImg.jpg"
                     src={screenWidth < 1023
                         ? "/aboutMobImg.jpg"
                         : "/aboutDtImg.jpg"
                     }
-                    className="rounded-lg mt-4 lg:mt-0"
+                    className="rounded-lg mt-4 lg:mt-0 lg:h-180"
                 />
             </div>
         </section>

@@ -8,7 +8,10 @@ class Products(BaseResource):
 
     field_map = {
         "productName": "name",
-        "productInfo": "info"
+        "productInfo": "info",
+        "stateOfWorld": "state_of_world",
+        "productMaterial": "material",
+        "productProgress": "progress"
     }
 
     def get(self):
@@ -22,7 +25,10 @@ class SpecificProduct(BaseResource):
 
     field_map = {
         "productName": "name",
-        "productInfo": "info"
+        "productInfo": "info",
+        "stateOfWorld": "state_of_world",
+        "productMaterial": "material",
+        "productProgress": "progress"
     }
 
     def get(self, id):

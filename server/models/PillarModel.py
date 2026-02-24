@@ -57,7 +57,7 @@ class PillarModel(db.Model, SerializerMixin):
         return validate_instance_numbers(
             PillarModel,
             self,
-            17,
+            7,
             key,
             value
         )

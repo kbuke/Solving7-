@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { LabelInput } from "../../../Component/LabelInput";
 import { useState } from "react";
 import { usePost } from "../../../CustomHooks/usePost";
+import { LoadingIcon } from "../../../Component/LoadingIcon";
 
 export function PostEmail({
     allEmails,
@@ -16,7 +17,6 @@ export function PostEmail({
     } = useForm()
 
     const handleEmailPost = (formData) => {
-        console.log(formData)
         usePost({
             url: "/api/emails",
             body: formData,
@@ -53,6 +53,8 @@ export function PostEmail({
                         Thank you for your message. We'll get back to you soon.
                     </p>
                 </div>
+                : sendingEmail?
+                <LoadingIcon />
                 :
                 <>
                     <h1
@@ -67,7 +69,11 @@ export function PostEmail({
                         placeholderText={"Please Enter Your Email Address"}
                         inputName={"senderEmail"}
                         inputValidations={{
-                            required: "Please Enter a value"
+                            required: "Please Enter a value",
+                            pattern: {
+                                value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                                message: "Please enter a valid email address"
+                            }
                         }}
                         marginTop={"mt-5"}
                         labelCss={"uppercase text-white text-lg"}

@@ -1,5 +1,6 @@
 import { useOutletContext } from "react-router"
 import { PillarInfo } from "./Components/PillarIfo"
+import { SectionHeading } from "../../Component/SectionHeading"
 
 export function PillarsPg(){
     const appData = useOutletContext()
@@ -13,13 +14,9 @@ export function PillarsPg(){
         <section
             className="mt-4 px-10"
         >
-            <h1
-                className="
-                    text-6xl uppercase tracking-[6px]
-                "
-            >
-                Pillars
-            </h1>
+            <SectionHeading 
+                title="Pillars"
+            />
 
             <p
                 className="mt-4 text-xl"

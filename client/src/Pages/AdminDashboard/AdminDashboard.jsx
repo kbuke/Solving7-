@@ -27,6 +27,9 @@ export function AdminDashboard(){
 
     const setLoading = appData?.setLoading
 
+    const allNews = appData?.allNews
+    const setAllNews = appData?.setAllNews
+
     const navigate = useNavigate()
 
     // Ensure user is logged in and not just entered the url
@@ -139,6 +142,8 @@ export function AdminDashboard(){
                         setUnGoals={setUnGoals}
                         allProducts={allProducts}
                         setAllProducts={setAllProducts}
+                        allNews={allNews}
+                        setAllNews={setAllNews}
                         setLoading={setLoading}
                     />
                 </PopUp>

@@ -4,6 +4,7 @@ import { ProductImg } from "../../../../Component/ProductImg"
 import { useOutletContext } from "react-router"
 import { DeleteProductPillar } from "./DeleteProductPillar"
 import { PostProductPillar } from "./PostProductPillar"
+import { text } from "@fortawesome/fontawesome-svg-core"
 
 export function AdminProducts({
     allProducts,
@@ -48,6 +49,9 @@ export function AdminProducts({
                 const productName = product?.name
                 const productId = product?.id
                 const productInfo = product?.info
+                const productWorld = product?.state_of_world
+                const productProgress = product?.progress
+                const productMaterial = product?.material
                 const productImg = ProductImg(productName)
 
                 const productPillars = product?.pillars
@@ -94,6 +98,21 @@ export function AdminProducts({
                         {
                             title: "Info",
                             text: productInfo
+                        },
+
+                        {
+                            title: "State of World",
+                            text: productWorld
+                        },
+
+                        {
+                            title: "S7 Progress",
+                            text: productProgress
+                        },
+
+                        {
+                            title: "Material",
+                            text: productMaterial
                         }
                     ]}
                     relationInstances={renderProductPillars}

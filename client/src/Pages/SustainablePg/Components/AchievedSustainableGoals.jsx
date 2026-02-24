@@ -2,6 +2,7 @@ import { useState } from "react"
 import { unGoalIcon } from "../../../Component/unGoalIcon"
 import { SolutionPopUp } from "./SolutionPopUp"
 import { PopUp } from "../../../Component/PopUp"
+import { SectionHeading } from "../../../Component/SectionHeading"
 
 export function AchievedSustainableGoals({
     achievedGoals
@@ -14,11 +15,9 @@ export function AchievedSustainableGoals({
         <div
             className="mt-20"
         >
-            <h1
-                className="text-6xl uppercase tracking-[6px]"
-            >
-                Achieved UN Goals
-            </h1>
+            <SectionHeading 
+                title={"Achieved UN Goals"}
+            />
 
             <div>
                 <p

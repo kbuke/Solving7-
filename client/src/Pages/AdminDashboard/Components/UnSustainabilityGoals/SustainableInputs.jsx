@@ -1,4 +1,5 @@
 import { DisplayCurrentValue } from "../../../../Component/DisplayCurrentValue"
+import { EnsureUniqueness } from "../../../../Component/EnsureUniquness"
 import { LabelInput } from "../../../../Component/LabelInput"
 
 export function SustainableInputs({
@@ -34,6 +35,12 @@ export function SustainableInputs({
                 inputName={"sustainableGoal"}
                 inputValidations={{
                     required: "Please Enter a value",
+                    ...EnsureUniqueness({
+                        allInstances: unGoals,
+                        variable: "goal",
+                        isPatch,
+                        selectedInstance
+                    })
                 }}
                 marginTop={"mt-5"}
                 containerPaddingX={"px-4"}

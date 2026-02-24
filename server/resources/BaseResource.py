@@ -32,24 +32,21 @@ class BaseResource(Resource):
         
         mapped_data = {}
         for key, value in data.items():
-            mapped_key = getattr(self, "field_map", {}).get(key, key)
+            mapped_key = self.field_map.get(key, key)
             mapped_data[mapped_key] = value
         try:
             new_record = self.model(**mapped_data)
-            # db.session.add(new_record)
 
-            # Email sending happens after commit
+            if hasattr(new_record, "validate_unique"):
+                new_record.validate_unique()
+
             db.session.add(new_record)
-            db.session.flush() # assigns ID, no commit yet
-
-            self.after_create(new_record)
-
             db.session.commit()
-
             return new_record.to_dict(), 201
+        
         except ValueError as e:
             db.session.rollback()
-            return {"error": [str(e)]}, 400 
+            return {"error": [str(e)]}, 400  
     
     # PATCH INSTANCE
     def patch_instance(self, id):

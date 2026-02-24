@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import { LabelInput } from "../../../../Component/LabelInput"
 import { DisplayCurrentValue } from "../../../../Component/DisplayCurrentValue"
+import { EnsureUniqueness } from "../../../../Component/EnsureUniquness"
 
 export function TeamInputs({
     allTeams, 
@@ -36,6 +37,12 @@ export function TeamInputs({
             inputName={"teamName"}
             inputValidations={{
               required: "Please Enter a value",
+              ...EnsureUniqueness({
+                allInstances: allTeams,
+                variable: "name",
+                isPatch,
+                selectedInstance
+              })
             }}
             marginTop={"mt-5"}
             containerPaddingX={"px-4"}

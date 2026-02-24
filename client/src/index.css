@@ -7,6 +7,11 @@
         pl-8
         lg:pl-12
     }
+
+    p{
+        @apply
+            whitespace-pre-line
+    }
 }
 
 @layer components{
