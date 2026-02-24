@@ -3,6 +3,7 @@ import { AdminPopUpContents } from "../../../../Component/AdminPopUpContents"
 import { ProductImg } from "../../../../Component/ProductImg"
 import { useOutletContext } from "react-router"
 import { DeleteProductPillar } from "./DeleteProductPillar"
+import { PostProductPillar } from "./PostProductPillar"
 
 export function AdminProducts({
     allProducts,
@@ -19,6 +20,8 @@ export function AdminProducts({
     const allProductPillars = appData?.allProductPillars
     const setAllProductPillars = appData?.setAllProductPillars
 
+    const allPillars = appData?.allPillars
+
     const setLoading = appData?.setLoading
 
     return(
@@ -30,6 +33,15 @@ export function AdminProducts({
                 selectedPillarId={selectedPillarId}
                 setSelecredPillarId={setSelectedPillarId}
                 setProductPillarAction={setProductPillarAction}
+            />
+            : productPillarAction === "post"
+            ? <PostProductPillar 
+                setAllProductPillars={setAllProductPillars}
+                setProductPillarAction={setProductPillarAction}
+                allPillars={allPillars}
+                selectedProduct={selectedProduct}
+                setSelectedProduct={setSelectedProduct}
+                setLoading={setLoading}
             />
             : allProducts?.map((product, index) => {
                 console.log(product)

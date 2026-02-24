@@ -1,81 +1,79 @@
+import { useForm } from "react-hook-form";
+import { usePost } from "../../../../CustomHooks/usePost";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faChevronCircleLeft } from "@fortawesome/free-solid-svg-icons"
-import { useForm } from "react-hook-form"
 import { Controller } from "react-hook-form";
-import { usePost } from "../../../../CustomHooks/usePost";
 
-export function PostSustainablePillar({
-    setAllPillarGoals,
-    setSustainableGoalAction,
-    unGoals,
-    selectedPillar,
-    setSelectedPillar,
+export function PostProductPillar({
+    setAllProductPillars,
+    setProductPillarAction,
+    allPillars,
+    selectedProduct,
+    setSelectedProduct,
     setLoading
 }){
     const {
         handleSubmit,
         control,
-        formState: { errors }
+        formState: {errors}
     } = useForm()
 
-    const pillarName = selectedPillar?.name
-    const pillarId = selectedPillar?.id
-    const pillarGoals = selectedPillar?.sustainable_goals 
+    const productName = selectedProduct?.name
+    const productId = selectedProduct?.id
+    const productPillars = selectedProduct?.pillars
 
-
-    //Ensure only options not yet chosen are available.
-    const availablePillarOptions = unGoals
-        ?.filter(goal =>
-            !pillarGoals?.some(
-                assignedGoal => assignedGoal.id === goal.id
+    const availableProductOptions = allPillars
+        ?.filter(pillar => 
+            !productPillars?.some(
+                assignedPillar => assignedPillar.id === pillar.id
             )
         )
-        ?.map(goal => ({
-            label: goal.goal,
-            value: goal.id
+        ?.map(pillar => ({
+            label: pillar.name,
+            value: pillar.id
     }))
 
-
-    const handlePillarGoalPost = (formData) => {
+    const handleProductPillarPost = (formData) => {
+        console.log(formData)
         const postData = {
-            pillarId: pillarId,
-            sustainableId: formData?.pillarGoals
+            productId: productId,
+            pillarId: formData?.productPillars
         }
         usePost({
-            url: "/api/sustainablepillar",
+            url: "/api/productpillar",
             body: postData,
             credentials: "include",
             setLoading: setLoading,
-            onSuccess: (newPillarGoal) => {
-                setAllPillarGoals(prev => [...prev, newPillarGoal])
-                setSelectedPillar()
-                setSustainableGoalAction(false)
+            onSuccess: (newProductPillar) => {
+                setAllProductPillars(prev => [...prev, newProductPillar])
+                setSelectedProduct()
+                setProductPillarAction()
             }
         })
     }
 
     return(
         <form
-            onSubmit={handleSubmit(handlePillarGoalPost)}
+            onSubmit={handleSubmit(handleProductPillarPost)}
         >
             <div className="flex gap-4 px-4 py-2 items-center border-b border-dashed">
                 <FontAwesomeIcon
                     icon={faChevronCircleLeft}
                     className="text-2xl text-blue-600 cursor-pointer"
                     onClick={() => {
-                        setSustainableGoalAction(false)
-                        setSelectedPillar()
+                        setProductPillarAction(false)
+                        setSelectedProduct()
                     }}
                 />
 
-                <h1 className="text-2xl uppercase">Add New Goal for {pillarName}</h1>
+                <h1 className="text-2xl uppercase">Add New Pillar for {productName}</h1>
             </div>
 
             <div
                 className="flex justify-center mt-4"
             >
                 <Controller 
-                    name={"pillarGoals"}
+                    name={"productPillars"}
                     control={control}
                     render={({field}) => (
                         <select
@@ -85,10 +83,10 @@ export function PostSustainablePillar({
                             <option
                                 value=""
                             >
-                                Select a UN Goal
+                                Select a Pillar
                             </option>
 
-                            {availablePillarOptions.map((option, index) => (
+                            {availableProductOptions.map((option, index) => (
                                 <option
                                     key={index}
                                     value={option.value}

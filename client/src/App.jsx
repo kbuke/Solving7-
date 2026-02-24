@@ -22,7 +22,7 @@ function App() {
   useFetch("/api/teams", setAllTeams)
   useFetch("/api/members", setAllEmployees)
   useFetch("/api/sustainability", setUnGoals)
-  useFetch("/api/products", setAllProducts)
+  useFetch("/api/products", setAllProducts, [allProductPillars])
   useFetch("/api/sustainablepillar", setAllPillarGoals)
   useFetch("/api/emails", setAllEmails)
   useFetch("/api/productpillar", setAllProductPillars)
