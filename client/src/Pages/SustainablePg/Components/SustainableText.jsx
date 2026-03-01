@@ -4,11 +4,10 @@ export function SustainableText(){
             className="block lg:grid lg:grid-cols-[3fr_2fr] gap-10"
         >
             <div>
-                {/* <h1
-                    className="text-6xl uppercase tracking-[6px]"
-                >
-                    UN Sustainable Goals
-                </h1> */}
+               <img 
+                    src="/unGoalsCover.jpg"
+                    className="rounded-lg mt-4 px-4 lg:hidden"
+                />
 
                 <p
                     className="home-text"
@@ -20,7 +19,7 @@ export function SustainableText(){
 
             <img 
                 src="/unGoalsCover.jpg"
-                className="rounded-lg"
+                className="rounded-lg hidden lg:block"
             />
         </div>
     )

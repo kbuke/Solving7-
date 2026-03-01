@@ -40,7 +40,7 @@ export function AchievedSustainableGoals({
             </div>
 
             <div
-                className="grid grid-cols-2 lg:grid-cols-4 self-center justify-items-center gap-10 mt-10"
+                className="px-4 grid grid-cols-2 lg:grid-cols-4 self-center justify-items-center gap-10 mt-10"
             >
                 {achievedGoals?.map((aG, index) => {
                     const aGId = aG?.id
@@ -48,7 +48,7 @@ export function AchievedSustainableGoals({
                         <div 
                             key={index}
                             style={{backgroundImage: `url(${unGoalIcon(aGId)})`}}
-                            className="bg-center bg-cover h-50 w-50 lg:h-60 lg:w-60 cursor-pointer hover:scale-110 duration-200"
+                            className="bg-center bg-cover h-40 w-40 lg:h-60 lg:w-60 cursor-pointer hover:scale-110 duration-200"
                             onClick={() => setSelectedGoal(aG)}
                         />
                     )

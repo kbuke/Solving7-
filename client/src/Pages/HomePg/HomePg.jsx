@@ -2,6 +2,7 @@ import { useOutletContext } from "react-router"
 import { HeroSection } from "./Components/HeroSection"
 import { AboutSection } from "./Components/AboutSection"
 import { TeamSection } from "./Components/TeamSection"
+import { NewsSection } from "./Components/NewsSection"
 
 export function HomePg(){
     const appData = useOutletContext()
@@ -9,7 +10,7 @@ export function HomePg(){
 
     const allTeams = appData?.allTeams
 
-    console.log(allTeams)
+    const allNews = appData?.allNews
 
     return(
         <section>
@@ -23,6 +24,10 @@ export function HomePg(){
 
             <TeamSection 
                 allTeams={allTeams}
+            />
+
+            <NewsSection 
+                allNews={allNews}
             />
         </section>
     )

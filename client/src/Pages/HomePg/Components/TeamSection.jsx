@@ -18,7 +18,7 @@ export function TeamSection({
             />
 
             <div
-                className="lg:grid lg:grid-cols-3 gap-10 mt-10 px-4 mb-10 items-center justify-items-center"
+                className="lg:grid lg:grid-cols-3 gap-10 mt-10 px-4 mb-0 lg:mb-10 items-center justify-items-center"
             >
                 {allTeams?.map((team, index) => {
                     const teamName = team?.name
@@ -27,7 +27,7 @@ export function TeamSection({
                             key={index}
                             className="
                                 rounded-xl flex flex-col text-center hover:-translate-y-2 duration-200 cursor-pointer
-                                h-80 w-100 items-center text-white
+                                lg:h-80 lg:w-100 items-center text-white mt-4 lg:mt-0
                             "
                             onClick={() => setSelectedTeam(team)}
                         >
