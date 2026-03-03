@@ -115,9 +115,10 @@ export function PillarInfo({ allPillars }) {
                 {/* Left Arrow */}
                 <button
                     onClick={prev}
-                    className="absolute left-0 top-1/2 -translate-y-1/2 
-                               bg-white shadow-lg rounded-full p-4 
-                               hover:scale-110 transition"
+                    className="absolute top-1/2 -translate-y-1/2 
+                    -translate-x-full ml-2
+                    bg-white shadow-lg rounded-full p-4 
+                    hover:scale-110 transition cursor-pointer border"
                 >
                     ◀
                 </button>
@@ -126,8 +127,9 @@ export function PillarInfo({ allPillars }) {
                 <button
                     onClick={next}
                     className="absolute right-0 top-1/2 -translate-y-1/2 
-                               bg-white shadow-lg rounded-full p-4 
-                               hover:scale-110 transition"
+                    translate-x-full mr-2
+                    bg-white shadow-lg rounded-full p-4 
+                    hover:scale-110 transition cursor-pointer border"
                 >
                     ▶
                 </button>

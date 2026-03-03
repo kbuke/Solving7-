@@ -18,6 +18,8 @@ class ProductModel(db.Model, SerializerMixin):
     material = db.Column(db.String, nullable = False, server_default = "")
     progress = db.Column(db.String, nullable = False, server_default = "")
 
+    images = db.relationship("ProductPictureModel", backref = "product", lazy=True)
+
     pillars = many_to_many_defined(
         "PillarModel",
         "products",
@@ -27,6 +29,7 @@ class ProductModel(db.Model, SerializerMixin):
     serialize_rules = (
         "-pillars.products",
         "-pillars.sustainable_goals",
+        "-images.product",
     )
 
     @validates("name")

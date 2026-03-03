@@ -11,8 +11,6 @@ export function SustainablePg(){
     // Check how many UN Goals S7 has achieved so far
     const achievedGoals = unGoals?.filter(unG => unG.pillars.length > 0)
 
-    console.log(achievedGoals)
-
     return(
         <section
             className="md:py-10 md:px-20"

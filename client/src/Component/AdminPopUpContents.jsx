@@ -8,7 +8,8 @@ export function AdminPopUpContents({
     setPostRelation,
     setSelectedInstanceRelation, //this is for selecting the instance for a relational model
     setSelectedInstance,
-    setAction
+    setAction,
+    images
 }){
     //Render the contents of all models onto the pop-up
     return(
@@ -51,6 +52,17 @@ export function AdminPopUpContents({
                             </p>
                         </div>
                     ))}
+
+                    {images && <div className="flex gap-4 mt-4 items-center">
+                        <h1 className="font-bold uppercase text-xl">Images</h1>
+                        <button 
+                            className="bg-green-600/80 text-white px-3 h-10 cursor-pointer"
+                            onClick={() => {
+                                setPostRelation("images")
+                                setSelectedInstanceRelation(instance)
+                            }}
+                        >Show Images</button>
+                    </div>}
 
                     {/* Show Relations */}
                     {relationInstances

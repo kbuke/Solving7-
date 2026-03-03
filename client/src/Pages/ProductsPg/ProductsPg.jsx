@@ -13,6 +13,8 @@ export function ProductsPg(){
 
     const allProducts = appData?.allProducts
 
+    console.log(allProducts)
+
     return(
         <section
             className="mt-8 lg:mt-4 lg:px-6"

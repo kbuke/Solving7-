@@ -16,6 +16,7 @@ function App() {
   const [allEmails, setAllEmails] = useState()
   const [allProductPillars, setAllProductPillars] = useState()
   const [allNews, setAllNews] = useState()
+  const [allProductImages, setAllProductImages] = useState()
   
 
   // Fetch all values for each model
@@ -23,11 +24,14 @@ function App() {
   useFetch("/api/teams", setAllTeams)
   useFetch("/api/members", setAllEmployees)
   useFetch("/api/sustainability", setUnGoals)
-  useFetch("/api/products", setAllProducts, [allProductPillars])
+  useFetch("/api/products", setAllProducts, [allProductPillars, allProductImages])
   useFetch("/api/sustainablepillar", setAllPillarGoals)
   useFetch("/api/emails", setAllEmails)
   useFetch("/api/productpillar", setAllProductPillars)
   useFetch("/api/news", setAllNews)
+  useFetch("/api/productimage", setAllProductImages)
+
+  console.log(allProductImages)
 
   // Calculate the width of the screen at all times
   const screenWidth = CalcScreenWidth()
@@ -45,6 +49,7 @@ function App() {
     allEmails, setAllEmails,
     allProductPillars, setAllProductPillars,
     allNews, setAllNews,
+    allProductImages, setAllProductImages,
 
     screenWidth
   }

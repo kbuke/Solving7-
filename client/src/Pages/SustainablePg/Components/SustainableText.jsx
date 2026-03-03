@@ -12,8 +12,13 @@ export function SustainableText(){
                 <p
                     className="home-text"
                 >
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, doloremque a repellendus eius architecto maiores tempora placeat cupiditate ad sunt atque magnam quibusdam officiis. Ea unde aliquam cumque provident optio magnam, voluptatibus obcaecati quaerat perferendis, delectus, id fugit. Voluptatum possimus eveniet dolore omnis molestias cupiditate error inventore dolores. Sequi accusamus assumenda a quo ex, iusto esse quibusdam quam eaque eveniet quae doloremque similique? Ipsam ipsum sed accusamus voluptatibus veritatis a dicta maiores, et sit. Asperiores, laborum? Deserunt nisi repellat sunt ipsa sapiente, quod est tempora quidem suscipit incidunt nobis ipsam in harum velit mollitia repellendus cupiditate dicta molestiae iste consequatur!
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium suscipit magnam ex, quisquam inventore odio fugiat facilis repellendus similique officiis, recusandae aliquid commodi nobis quos ipsa quasi esse repudiandae animi consequuntur nesciunt possimus quibusdam quam. Nesciunt ipsa voluptas repellat qui quisquam vero perferendis reprehenderit minus distinctio, voluptate laudantium quam dolorum a facere! Modi accusantium itaque excepturi, quae facilis commodi molestias, quod mollitia impedit eos placeat quisquam! Sequi, cupiditate. Nostrum dolor fuga, iure voluptatem ab id quae consequuntur obcaecati rerum labore 
+                    <span className="font-bold">The United Nations Sustainable Development Goals (SDGs)</span> are a global blueprint for building a more just, prosperous, and sustainable world. Adopted in 2015 as part of the United Nations General Assembly 2030 Agenda for Sustainable Development, the 17 goals address the world’s most urgent challenges — including poverty, inequality, climate change, environmental protection, and access to education and healthcare.
+                </p>
+
+                <p
+                    className="home-text"
+                >
+                    The SDGs are built on the principle of “leaving no one behind,” recognizing that lasting progress must be inclusive and interconnected. By bringing together governments, businesses, communities, and individuals, the programme promotes collective action and shared responsibility to create measurable, long-term impact for people and the planet.
                 </p>
             </div>
 

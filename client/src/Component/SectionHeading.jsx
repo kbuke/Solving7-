@@ -1,7 +1,8 @@
 export function SectionHeading({title}){
     return(
         <div
-            className="grid grid-cols[2fr_3fr] lg:grid-cols-[1fr_2fr] lg:gap-4 items-center"
+            // className="grid grid-cols[2fr_3fr] lg:grid-cols-[1fr_2fr] lg:gap-4 items-center"
+            className="mb-4"
         >
             <h1
                 className="uppercase text-3xl lg:text-6xl text-green-600"

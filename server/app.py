@@ -14,6 +14,7 @@ from resources.Login import Login
 from resources.Logout import Logout
 from resources.Emails import EmailList
 from resources.News import NewsList, SpecificNews
+from resources.ProductImages import ProductImage, SpecificProductImg
 
 add_resource(Members, "/members")
 add_resource(SpecificMember, "/members/<int:id>")
@@ -46,6 +47,9 @@ add_resource(EmailList, "/emails")
 
 add_resource(NewsList, "/news")
 add_resource(SpecificNews, "/news/<int:id>")
+
+add_resource(ProductImage, "/productimage")
+add_resource(SpecificProductImg, "/productimage/<int:id>")
 
 
 if __name__ == "__main__":

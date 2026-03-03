@@ -9,7 +9,6 @@ export function PillarsPg(){
 
     const screenWidth = appData?.screenWidth
 
-    console.log(allPillars)
     return(
         <section
             className="mt-4 px-10"

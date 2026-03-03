@@ -5,12 +5,16 @@ import { useOutletContext } from "react-router"
 import { DeleteProductPillar } from "./DeleteProductPillar"
 import { PostProductPillar } from "./PostProductPillar"
 import { text } from "@fortawesome/fontawesome-svg-core"
+import { ProductImages } from "./ProductImages"
 
 export function AdminProducts({
     allProducts,
     setSelectedInstance, 
-    setAction
+    setAction,
+    allProductImages,
+    setAllProductImages
 }){
+    console.log(allProductImages)
     const [productPillarAction, setProductPillarAction] = useState()
     const [selectedProduct, setSelectedProduct] = useState()
     const [selectedPillarId, setSelectedPillarId] = useState()
@@ -24,6 +28,8 @@ export function AdminProducts({
     const allPillars = appData?.allPillars
 
     const setLoading = appData?.setLoading
+
+    console.log(selectedProduct)
 
     return(
         productPillarAction === "delete"
@@ -44,8 +50,13 @@ export function AdminProducts({
                 setSelectedProduct={setSelectedProduct}
                 setLoading={setLoading}
             />
+            : productPillarAction === "images"
+            ? <ProductImages 
+                selectedProduct={selectedProduct}
+                allProductImages={allProductImages}
+                setAllProductImages={setAllProductImages}
+            />
             : allProducts?.map((product, index) => {
-                console.log(product)
                 const productName = product?.name
                 const productId = product?.id
                 const productInfo = product?.info
@@ -53,6 +64,8 @@ export function AdminProducts({
                 const productProgress = product?.progress
                 const productMaterial = product?.material
                 const productImg = ProductImg(productName)
+
+                const productImages = true
 
                 const productPillars = product?.pillars
 
@@ -121,6 +134,7 @@ export function AdminProducts({
                     setSelectedInstanceRelation={setSelectedProduct}
                     setSelectedInstance={setSelectedInstance}
                     setAction={setAction}
+                    images={productImages}
                 />
             )
         })

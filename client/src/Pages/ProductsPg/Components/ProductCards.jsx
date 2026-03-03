@@ -4,8 +4,10 @@ export function ProductCard({
 }){
     return(
         <div
-            style={{backgroundImage: `url(/ProductCardImg/${product?.name}.png)`}}
-            className="relative h-140 lg:h-160 mb-6 border bg-center bg-no-repeat bg-cover rounded cursor-pointer hover:-translate-y-2 duration-200 shadow-2xs"
+            style={{
+                backgroundImage: `url("/ProductCardImg/${product?.name}.png")`
+            }}
+            className="relative h-140 lg:h-160 mb-6  bg-center bg-no-repeat bg-cover rounded cursor-pointer hover:-translate-y-2 duration-200 shadow-2xs"
             onClick={() => setSelectedProduct(product)}
         >
             <div

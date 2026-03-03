@@ -28,11 +28,15 @@ export function AdminPopUp({
     setAllProducts,
     allNews,
     setAllNews,
+    allProductImages,
+    setAllProductImages,
 
     setLoading
 }){
     const [action, setAction] = useState(null)
     const [selectedInstance, setSelectedInstance] = useState()
+
+    console.log(allProductImages)
 
     const componentMap = {
         pillars: AdminPillars,
@@ -48,7 +52,7 @@ export function AdminPopUp({
         teams: {allTeams, setSelectedInstance, setAction},
         employees: {allEmployees, setSelectedInstance, setAction},
         sustainabilityGoals: {unGoals, setSelectedInstance, setAction},
-        products: {allProducts, setSelectedInstance, setAction},
+        products: {allProducts, setSelectedInstance, setAction, allProductImages, setAllProductImages},
         news: {allNews, setSelectedInstance, setAction}
     }
 

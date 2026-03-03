@@ -30,6 +30,11 @@ export function AdminDashboard(){
     const allNews = appData?.allNews
     const setAllNews = appData?.setAllNews
 
+    const allProductImages = appData?.allProductImages
+    const setAllProductImages = appData?.setAllProductImages
+
+    console.log(allProductImages)
+
     const navigate = useNavigate()
 
     // Ensure user is logged in and not just entered the url
@@ -145,6 +150,8 @@ export function AdminDashboard(){
                         allNews={allNews}
                         setAllNews={setAllNews}
                         setLoading={setLoading}
+                        allProductImages={allProductImages}
+                        setAllProductImages={setAllProductImages}
                     />
                 </PopUp>
             )}
