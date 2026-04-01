@@ -1,4 +1,5 @@
 import { NavLink, Link } from "react-router"
+import NavLogo from "../../public/logoBlack.png"
 
 export function NavBar(){
     const navOptions = [
@@ -26,9 +27,17 @@ export function NavBar(){
         <div
             className="
                 hidden md:flex md:h-30 w-full bg-black top-0 sticky z-20
-                justify-around items-center
+                justify-around items-center overflow-hidden
             "
         >
+            <Link
+                to="/"
+            >
+                <img 
+                    src={NavLogo}
+                    className="h-36"
+                />
+            </Link>
             {navOptions.map((option, index) => (
                 <Link
                     key={index}

@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons"
 import { useState } from "react"
+import { ProductImages } from "./ProductImages"
 
 export function ProductPopUp({
     product,
@@ -14,6 +15,7 @@ export function ProductPopUp({
     const productInfo = product?.info
     const s7Progress = product?.progress
     const productPillars = product?.pillars
+    const productImages = product?.images
 
     const renderIcons = (icon) => {
         return(
@@ -111,12 +113,10 @@ export function ProductPopUp({
                 </div>
             </div>
 
-            <div>
-                <img 
-                    src={`ProductPics/${productName}.png`}
-                    className="h-full hidden lg:block"
-                />
-            </div>
+            <ProductImages 
+                productImages={productImages}
+                productName={productName}
+            />
         </div>
     )
 }

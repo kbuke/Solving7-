@@ -26,11 +26,11 @@ export function AchievedSustainableGoals({
                     Solving 7 aligns its work with key United Nations Sustainable Development Goals (SDGs), ensuring measurable environmental, social, and economic impact.
                 </p>
 
-                <p
+                {/* <p
                     className="home-text"
                 >
                     By integrating infrastructure, livelihoods, and behaviour change, Solving 7 delivers multi-SDG impact through a single circular ecosystem.
-                </p>
+                </p> */}
 
                 <p
                     className="home-text"
@@ -64,6 +64,12 @@ export function AchievedSustainableGoals({
                 </PopUp>
                 : null
             }
+
+            <p
+                className="home-text"
+            >
+                By integrating infrastructure, livelihoods, and behaviour change, Solving 7 delivers multi-SDG impact through a single circular ecosystem.
+            </p>
         </div>
     )
 }
