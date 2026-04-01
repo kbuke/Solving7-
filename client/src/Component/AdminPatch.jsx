@@ -8,6 +8,7 @@ import { EmployeeInput } from "../Pages/AdminDashboard/Components/Employees/Empl
 import { SustainableInputs } from "../Pages/AdminDashboard/Components/UnSustainabilityGoals/SustainableInputs"
 import { ProductInput } from "../Pages/AdminDashboard/Components/Products/ProductInput"
 import { NewsInput } from "../Pages/AdminDashboard/Components/News/NewsInputs"
+import { PartnersInput } from "../Pages/AdminDashboard/Components/Partners/PartnersInputs"
 
 export function AdminPatch({
     topic, 
@@ -19,7 +20,8 @@ export function AdminPatch({
     setAllEmployees,
     setUnGoals,
     setAllProducts,
-    setAllNews
+    setAllNews,
+    setAllPartners
 }){
     const isPatch = true
 
@@ -85,6 +87,15 @@ export function AdminPatch({
             selectedTitle: selectedInstance?.title,
             setState: setAllNews,
             component: NewsInput,
+            props: {reset, selectedInstance, setAction, isPatch, register}
+        },
+
+        partners: {
+            endpoint: `/api/partners/${selectedInstance?.id}`,
+            selectedId: selectedInstance?.id,
+            selectedTitle: selectedInstance?.name,
+            setState: setAllPartners,
+            component: PartnersInput,
             props: {reset, selectedInstance, setAction, isPatch, register}
         }
     }

@@ -36,7 +36,7 @@ export function AdminPopUpContents({
                         {instanceName}
                     </h1>
 
-                    {instanceText.map((text, index) => (
+                    {instanceText?.map((text, index) => (
                         <div
                             className="grid grid-cols-[1fr_7fr] gap-4 mt-2"
                             key={index}

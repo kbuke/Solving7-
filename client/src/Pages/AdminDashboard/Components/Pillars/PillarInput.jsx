@@ -1,6 +1,8 @@
 import { LabelInput } from "../../../../Component/LabelInput";
 import { DisplayCurrentValue } from "../../../../Component/DisplayCurrentValue";
 
+import { EnsureUniqueness } from "../../../../Component/EnsureUniquness";
+
 export function PillarInput({
     allPillars,
     setAllPillars,

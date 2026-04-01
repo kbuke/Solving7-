@@ -33,7 +33,8 @@ export function AdminDashboard(){
     const allProductImages = appData?.allProductImages
     const setAllProductImages = appData?.setAllProductImages
 
-    console.log(allProductImages)
+    const allPartners = appData?.allPartners
+    const setAllPartners = appData?.setAllPartners
 
     const navigate = useNavigate()
 
@@ -62,7 +63,8 @@ export function AdminDashboard(){
         {key: "employees", label: "Employees"},
         {key: "sustainabilityGoals", label: "UN Sustainability Goals"},
         {key: "products", label: "Products"},
-        {key: "news", label: "News"}
+        {key: "news", label: "News"},
+        {key: "partners", label: "Partners"}
     ]
 
     return(
@@ -152,6 +154,8 @@ export function AdminDashboard(){
                         setLoading={setLoading}
                         allProductImages={allProductImages}
                         setAllProductImages={setAllProductImages}
+                        allPartners={allPartners}
+                        setAllPartners={setAllPartners}
                     />
                 </PopUp>
             )}

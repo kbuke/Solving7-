@@ -9,6 +9,7 @@ import { EmployeeInput } from "../Pages/AdminDashboard/Components/Employees/Empl
 import { SustainableInputs } from "../Pages/AdminDashboard/Components/UnSustainabilityGoals/SustainableInputs"
 import { ProductInput } from "../Pages/AdminDashboard/Components/Products/ProductInput"
 import { NewsInput } from "../Pages/AdminDashboard/Components/News/NewsInputs"
+import { PartnersInput } from "../Pages/AdminDashboard/Components/Partners/PartnersInputs"
 
 export function AdminPost({
   topic,
@@ -25,6 +26,8 @@ export function AdminPost({
   setAllProducts,
   allNews,
   setAllNews,
+  allPartners,
+  setAllPartners,
   setLoading,
 }) {
   const [postSuccess, setPostSuccess] = useState(false)
@@ -77,6 +80,13 @@ export function AdminPost({
       setState: setAllNews,
       component: NewsInput,
       props: {allNews, setAllNews, register, errors}
+    },
+
+    partners: {
+      endpoint: "/api/partners",
+      setState: setAllPartners,
+      component: PartnersInput,
+      props: {allPartners, setAllPartners, register, errors}
     }
   }
 

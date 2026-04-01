@@ -10,6 +10,7 @@ import { AdminPost } from "./AdminPost"
 import { AdminDelete } from "./AdminDelete"
 import { AdminPatch } from "./AdminPatch"
 import { AdminNews } from "../Pages/AdminDashboard/Components/News/AdminNews"
+import { AdminPartners } from "../Pages/AdminDashboard/Components/Partners/AdminPartners"
 
 export function AdminPopUp({
     topic,
@@ -30,13 +31,13 @@ export function AdminPopUp({
     setAllNews,
     allProductImages,
     setAllProductImages,
+    allPartners,
+    setAllPartners,
 
     setLoading
 }){
     const [action, setAction] = useState(null)
     const [selectedInstance, setSelectedInstance] = useState()
-
-    console.log(allProductImages)
 
     const componentMap = {
         pillars: AdminPillars,
@@ -44,8 +45,11 @@ export function AdminPopUp({
         employees: AdminEmployees,
         sustainabilityGoals: AdminSustainability,
         products: AdminProducts,
-        news: AdminNews
+        news: AdminNews,
+        partners: AdminPartners
     }
+
+    console.log(topic)
 
     const propsMap = {
         pillars: {allPillars, setSelectedInstance, setAction},
@@ -53,7 +57,8 @@ export function AdminPopUp({
         employees: {allEmployees, setSelectedInstance, setAction},
         sustainabilityGoals: {unGoals, setSelectedInstance, setAction},
         products: {allProducts, setSelectedInstance, setAction, allProductImages, setAllProductImages},
-        news: {allNews, setSelectedInstance, setAction}
+        news: {allNews, setSelectedInstance, setAction},
+        partners: {allPartners, setSelectedInstance, setAction}
     }
 
     const SelectedComponent = componentMap[topic]
@@ -143,6 +148,8 @@ export function AdminPopUp({
                         setAllProducts={setAllProducts}
                         allNews={allNews}
                         setAllNews={setAllNews}
+                        allPartners={allPartners}
+                        setAllPartners={setAllPartners}
                         setLoading={setLoading}
                     />
                     : action === "delete"
@@ -156,6 +163,7 @@ export function AdminPopUp({
                         setUnGoals={setUnGoals}
                         setAllProducts={setAllProducts}
                         setAllNews={setAllNews}
+                        setAllPartners={setAllPartners}
                     />
                     : action === "patch"
                     ? <AdminPatch 
@@ -169,6 +177,7 @@ export function AdminPopUp({
                         setUnGoals={setUnGoals}
                         setAllProducts={setAllProducts}
                         setAllNews={setAllNews}
+                        setAllPartners={setAllPartners}
                     />
                     : SelectedComponent && (
                         <SelectedComponent {...propsMap[topic]} />

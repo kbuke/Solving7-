@@ -11,7 +11,7 @@ class PartnerModel(db.Model, SerializerMixin):
 
     id = db.Column(db.Integer, primary_key = True)
     name = db.Column(db.String, nullable = False, unique = True)
-    logo = db.Column(db.String, nullable = False, unique = True)
+    logo = db.Column(db.String, nullable = True, server_default = "")
 
 @validates("name")
 def validate_partner_name(self, key, value):
