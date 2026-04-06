@@ -1,13 +1,8 @@
-import { useState } from "react"
-import { TeamsImg } from "../../../Component/TeamsImg"
-import {PopUp} from "../../../Component/PopUp"
-import { TeamPopUp } from "./TeamPopUp"
 import { SectionHeading } from "../../../Component/SectionHeading"
 
 export function TeamSection({
     allTeams
 }){
-    const [selectedTeam, setSelectedTeam] = useState()
 
     return(
         <section
@@ -18,47 +13,59 @@ export function TeamSection({
             />
 
             <div
-                className="lg:grid lg:grid-cols-3 gap-10 mt-10 px-4 mb-0 lg:mb-10 items-center justify-items-center"
+                className="lg:grid lg:grid-cols-2 gap-10"
             >
                 {allTeams?.map((team, index) => {
-                    const teamName = team?.name
-                    return(
+                    const isSingleMember = team?.members?.length === 1
+
+                    return (
                         <div
                             key={index}
-                            className="
-                                rounded-xl flex flex-col text-center hover:-translate-y-2 duration-200 cursor-pointer
-                                lg:h-80 lg:w-100 items-center text-white mt-4 lg:mt-0
-                            "
-                            onClick={() => setSelectedTeam(team)}
+                            className={`mt-4 lg:mt-4 border-b lg:border-none ${isSingleMember ? "col-span-1" : "col-span-2"}`}
                         >
-                            <img 
-                                src={`/TeamImg/${teamName}.png`}
-                                className="rounded-t-xl"
-                            />
+                            <h1 className="secondary-heading px-0 text-center lg:text-left text-2xl lg:text-4xl">
+                            {team.name}
+                            </h1>
 
-                            <div
-                                className="flex justify-center items-center bg-[rgba(0,120,0,1)] w-full h-full rounded-b-lg"
-                            >
-                                <h1
-                                    className="uppercase text-3xl py-4"
-                                >
-                                    {teamName}
-                                </h1>
+                            <p
+                                className="text-center lg:text-left mb-4"
+                            >{team.info}</p>
+
+                            <div className={`lg:grid gap-10 ${isSingleMember ? "lg:grid-cols-1" : "lg:grid-cols-2"}`}>
+                            {team.members?.map((member, i) => (
+                                <div key={i} className="lg:grid lg:grid-cols-2">
+                                    <img 
+                                        src={`/EmployeeImg/${member?.name}.jpg`}
+                                        alt={`${member?.name}-img`}
+                                        className="h-60 lg:h-120 w-60 lg:w-80 rounded-full lg:rounded justify-self-center lg:justify-self-start"
+                                    />
+
+                                    <div>
+                                        <h1
+                                            className="uppercase text-3xl font-bold tracking-[4px] text-center lg:text-left mt-4 lg:mt-0"
+                                        >
+                                            {member?.name}
+                                        </h1>
+
+                                        <h1
+                                            className="uppercase text-xl font-bold tracking-widest text-center lg:text-left"
+                                        >
+                                            {member?.position}
+                                        </h1>
+
+                                        <p
+                                            className="text-lg mb-10 lg:mb-0"
+                                        >
+                                            {member?.intro}
+                                        </p>
+                                    </div>
+                                </div>
+                            ))}
                             </div>
                         </div>
                     )
                 })}
             </div>
-
-            {selectedTeam
-                ? <PopUp >
-                    <TeamPopUp 
-                        selectedTeam={selectedTeam}
-                        setSelectedTeam={setSelectedTeam}
-                    />
-                </PopUp>
-                : null
-            }
         </section>
     )
 }

@@ -21,7 +21,7 @@ export function ProductPopUp({
         return(
             <img 
                 src={`/productIcons/${icon}.png`}
-                className={`h-15 cursor-pointer ${selectedIcon === icon && "bg-green-400 rounded-full h-15 w-15 p-2"}`}
+                className={`h-15 cursor-pointer hover:-translate-y-2 rounded-full duration-200 hover:shadow-lg ${selectedIcon === icon && "bg-green-400 rounded-full h-15 w-15 p-2"}`}
                 onClick={() => setSelectedIcon(icon)}
             />
         )

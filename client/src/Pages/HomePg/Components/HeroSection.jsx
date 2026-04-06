@@ -22,6 +22,11 @@ export function HeroSection({
             >
                 <source src={heroVid} type="video/mp4" />
             </video>
+
+            <img 
+                src={"/scrollDown.png"}
+                className="bg-white rounded-full animate-pulse h-10 w-10 absolute bottom-4 justify-self-center"
+            />
         </div>
     )
 }

@@ -13,7 +13,6 @@ export function ProductsPg(){
 
     const allProducts = appData?.allProducts
 
-    console.log(allProducts)
 
     return(
         <section

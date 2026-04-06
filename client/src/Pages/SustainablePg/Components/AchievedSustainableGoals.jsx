@@ -40,7 +40,7 @@ export function AchievedSustainableGoals({
             </div>
 
             <div
-                className="px-4 grid grid-cols-2 lg:grid-cols-4 self-center justify-items-center gap-10 mt-10"
+                className="px-4 grid grid-cols-2 lg:grid-cols-6 self-center justify-items-center gap-10 mt-10"
             >
                 {achievedGoals?.map((aG, index) => {
                     const aGId = aG?.id

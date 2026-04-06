@@ -19,8 +19,14 @@ export function SolutionPopUp({
                     className="w-full lg:hidden"
                 />
 
+                <h1
+                    className="px-4 mt-4 uppercase font-bold text-xl tracking-widest"
+                >
+                    Goal {selectedGoal?.id}: {selectedGoal?.goal}
+                </h1>
+
                 <p
-                    className="mt-4 px-4 text-lg"
+                    className="px-4 text-lg mt-2"
                 >
                     {selectedGoal?.info}
                 </p>
