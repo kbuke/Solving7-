@@ -30,6 +30,10 @@ app.config["MAIL_USE_SSL"] = False
 
 mail = Mail(app)
 
+# Hanlde Donations
+PAYSTACK_SECRET = os.getenv("PAYSTACK_TEST_SECRET_KEY")
+PAYSTACK_URL = "https://api.paystack.co/transaction/initialize"
+
 
 metadata = MetaData(naming_convention={
     "fk": "fk_%(table_name)s_%(column_0_name)s_%(referred_table_name)s"

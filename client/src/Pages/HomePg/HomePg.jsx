@@ -11,9 +11,11 @@ import { SkyNews } from "./Components/SkyNews"
 import { useState } from "react"
 import { PopUp } from "../../Component/PopUp"
 import { ArticlePopUp } from "./Components/ArticlePopUp"
+import { DonatePopUp } from "./Components/DonatePopUp"
 
 export function HomePg(){
     const [selectedArticle, setSelectedArticle] = useState()
+    const [donate, setDonate] = useState(false)
 
     const appData = useOutletContext()
     const screenWidth = appData?.screenWidth
@@ -47,7 +49,9 @@ export function HomePg(){
                 allTeams={allTeams}
             />
 
-            <DonateSection />
+            <DonateSection 
+                setDonate={setDonate}
+            />
 
             <PartnersSection 
                 allPartners={allPartners}
@@ -62,6 +66,14 @@ export function HomePg(){
                     <ArticlePopUp 
                         selectedArticle={selectedArticle}
                         setSelectedArticle={setSelectedArticle}
+                    />
+                </PopUp>
+            }
+
+            {donate && 
+                <PopUp>
+                    <DonatePopUp 
+                        setDonate={setDonate}
                     />
                 </PopUp>
             }

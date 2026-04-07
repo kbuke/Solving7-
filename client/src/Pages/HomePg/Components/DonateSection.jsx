@@ -1,4 +1,6 @@
-export function DonateSection(){
+export function DonateSection({
+    setDonate
+}){
    return(
     <section
         style={{
@@ -21,6 +23,7 @@ export function DonateSection(){
 
             <button
                 className="bg-green-600/90 p-4 uppercase rounded-lg mt-10 w-60 h-20 text-xl font-bold tracking-widest cursor-pointer hover:-translate-y-2 duration-200 hover:shadow animate-pulse"
+                onClick={() => setDonate(true)}
             >
                 Donate Here
             </button>

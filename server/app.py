@@ -16,6 +16,7 @@ from resources.Emails import EmailList
 from resources.News import NewsList, SpecificNews
 from resources.ProductImages import ProductImage, SpecificProductImg
 from resources.Partners import Partners, SpecificPartner
+from resources.Donations import Donations, PaystackWebhook, VerifyTransaction
 
 add_resource(Members, "/members")
 add_resource(SpecificMember, "/members/<int:id>")
@@ -54,6 +55,10 @@ add_resource(SpecificProductImg, "/productimage/<int:id>")
 
 add_resource(Partners, "/partners")
 add_resource(SpecificPartner, "/partners/<int:id>")
+
+add_resource(Donations, "/donations")
+add_resource(PaystackWebhook, "/paystack/webhook")
+add_resource(VerifyTransaction, "/verify/<string:reference>")
 
 
 if __name__ == "__main__":

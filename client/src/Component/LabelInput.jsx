@@ -24,12 +24,13 @@ export function LabelInput({
     control,
 
     // Form error css
-    formCss
+    formCss,
+    divCss
 }){
     return(
         <>
             <div
-                className={`flex flex-col ${marginTop} ${containerPaddingX}`}
+                className={`flex flex-col ${marginTop} ${containerPaddingX} ${divCss}`}
             >
                 <label
                     className={labelCss}

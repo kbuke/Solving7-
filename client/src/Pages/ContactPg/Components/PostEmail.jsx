@@ -10,6 +10,7 @@ export function PostEmail({
 }){
     const [sendingEmail, setSendingEmail] = useState(false)
     const [emailSent, setEmailSent] = useState(false)
+    
     const {
         handleSubmit, 
         register,

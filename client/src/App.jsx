@@ -18,6 +18,7 @@ function App() {
   const [allNews, setAllNews] = useState()
   const [allProductImages, setAllProductImages] = useState()
   const [allPartners, setAllPartners] = useState()
+  const [allDonations, setAllDonations] = useState()
   
 
   // Fetch all values for each model
