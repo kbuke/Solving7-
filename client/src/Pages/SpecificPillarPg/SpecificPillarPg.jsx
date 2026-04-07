@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useParams } from "react-router";
 import { useFetch } from "../../CustomHooks/useFetch";
+import { Link } from "react-router";
 
 export function SpecificPillarPage(){
     const [selectedPillar, setSelectedPillar] = useState([])
@@ -110,9 +111,10 @@ export function SpecificPillarPage(){
                     {pillarProducts?.map((product, index) => {
                         const productName = product?.name 
                         return(
-                            <div
+                            <Link
                                 key={index}
                                 className="flex items-center gap-4 bg-white lg:bg-none uppercase rounded-xl p-2 hover:-translate-y-2 duration-200 hover:cursor-pointer mb-4"
+                                to={`/products/${product?.id}`}
                             >
                                 <img 
                                     src={`/ProductPics/${productName}.png`}
@@ -122,7 +124,7 @@ export function SpecificPillarPage(){
                                 <p>
                                     {productName}
                                 </p>
-                            </div>
+                            </Link>
                         )
                     })}
                 </div>
