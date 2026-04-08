@@ -4,6 +4,7 @@ from flask_restful import Resource
 
 from config import PAYSTACK_SECRET
 from config import PAYSTACK_URL
+from config import PAYSTACK_LIVE_SECRET_KEY
 
 import hashlib
 import hmac
@@ -31,6 +32,7 @@ class Donations(Resource):
                 PAYSTACK_URL,
                 headers={
                     "Authorization": f"Bearer {PAYSTACK_SECRET}",
+                    # "Authorization": f"Bearer {PAYSTACK_LIVE_SECRET_KEY}",
                     "Content-Type": "application/json"
                 },
                 json = {
@@ -39,7 +41,7 @@ class Donations(Resource):
                     "metadata": {
                         "type": "donation"
                     },
-                    "callback_url": f"{os.getenv('FRONTEND_URL')}/success"
+                    "callback_url": f"{os.getenv('FRONTEND_URL')}/success" # change this to actual url when deploying live site 
                 }
             )
 
@@ -66,7 +68,7 @@ class PaystackWebhook(Resource):
         if not paystack_signature:
             return {"error": "Missing Signature"}, 400 
         
-        secret = PAYSTACK_SECRET.encode()
+        secret = PAYSTACK_LIVE_SECRET_KEY.encode()
 
         computed_signature = hmac.new(
             secret,
@@ -86,10 +88,11 @@ class PaystackWebhook(Resource):
             reference = data["reference"]
 
             # Verify with Paystack 
-            verify_url = f"https://api.paystack/co/transaction/verify{reference}"
+            verify_url = f"https://api.paystack.co/transaction/verify/{reference}"
             verify_res = requests.get(
                 verify_url,
                 headers={"Authorization": f"Bearer {PAYSTACK_SECRET}"}
+                # headers={"Authorization": f"Bearer {PAYSTACK_LIVE_SECRET_KEY}"}
             ).json()
 
             if not verify_res.get("status") or verify_res["data"]["status"] != "success":
@@ -125,6 +128,7 @@ class VerifyTransaction(Resource):
         response = requests.get(
             url,
             headers={"Authorization": f"Bearer {PAYSTACK_SECRET}"}
+            # headers={"Authorization": f"Bearer {PAYSTACK_LIVE_SECRET_KEY}"}
         )
 
         return response.json()

@@ -6,6 +6,10 @@ import {PopUp} from "../PopUp.jsx"
 import { DesktopNavBar } from "./DesktopNavBar.jsx";
 import { MobileNavBar } from "./MobileNavBar.jsx";
 
+import { Link } from "react-router";
+
+import NavLogo from "../../../public/logoBlack.png"
+
 export function PublicNavBar(){
     const [openNav, setOpenNav] = useState(false)
 
@@ -54,7 +58,16 @@ export function PublicNavBar(){
     return (
         <>
             {/* 🔹 MOBILE: Hamburger icon */}
-            <div className="fixed top-4 right-4 z-50 lg:hidden">
+            <div className="sticky top-0 z-50 lg:hidden bg-gray-500 py-2 px-6 w-full border-b border-white flex justify-between items-center">
+                <Link
+                    to="/"
+                >
+                    <img 
+                        src={NavLogo}
+                        className="h-20"
+                    />
+                </Link>
+
                 <FontAwesomeIcon
                     icon={faBars}
                     className="p-3 rounded-full bg-white shadow-md cursor-pointer"

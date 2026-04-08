@@ -13,8 +13,6 @@ export function SpecificProductsPage(){
 
     useFetch(`/api/products/${selectedProductId}`, setSelectedProduct)
 
-    console.log(selectedProduct)
-
     const productImages = selectedProduct?.images
     const productName = selectedProduct?.name
     const productState = selectedProduct?.state_of_world
@@ -25,7 +23,7 @@ export function SpecificProductsPage(){
     ) => {
         return(
             <div
-                className={`mb-10 lg:mb-0 ${rightBorder ? "lg:border-r lg:border-black/60 px-4 mt-4" : "px-4 mt-4"}`}
+                className={`border-b py-4 border-black/30 lg:border-b-0 mb-10 lg:mb-0 ${rightBorder ? "lg:border-r lg:border-black/60 px-4 mt-4" : "px-4 mt-4"}`}
             >
                 <img 
                     src={`/productIcons/${productCat}.png`}
@@ -50,7 +48,7 @@ export function SpecificProductsPage(){
             className="pt-14 lg:pt-6"
         >
             <h1
-                className="secondary-heading"
+                className="text-3xl uppercase ml-2 tracking-widest lg:secondary-heading"
             >
                 {productName}
             </h1>
@@ -64,7 +62,7 @@ export function SpecificProductsPage(){
                 {productGrid("world")}
             </div>
 
-            <div className="bg-gray-500 mt-4 text-white py-6">
+            <div className="bg-gray-500 lg:mt-4 text-white py-6 px-2 lg:px-0">
                 <h1 className="secondary-heading text-3xl">
                     Images
                 </h1>

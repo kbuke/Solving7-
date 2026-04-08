@@ -3,7 +3,7 @@ import { SectionHeading } from "../../../Component/SectionHeading";
 export function SkyNews(){
     return(
         <div
-            className="flex flex-col"
+            className="lg:flex lg:flex-col hidden"
         >
             <div
                 className="mb-4 px-24"

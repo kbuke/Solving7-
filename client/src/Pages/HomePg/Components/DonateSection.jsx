@@ -6,13 +6,13 @@ export function DonateSection({
         style={{
             backgroundImage: `url(${`/DonateBg.png`})`
         }}
-        className="bg-center bg-no-repeat w-full h-140 bg-cover flex items-center justify-center"
+        className="bg-center bg-no-repeat w-full h-140 bg-cover flex justify-center items-center"
     >
         <div
-            className="bg-black/60 w-[95%] h-[95%] p-4 text-white rounded pr-180 flex flex-col justify-center"
+            className="bg-black/80 text-white w-[90%] lg:w-[70%] h-[70%] lg:h-[60%] p-4 rounded-xl lg:pr-160"
         >
             <h1
-                className="uppercase text-6xl tracking-[6px]"
+                className="uppercase tracking-widest text-4xl"
             >
                 Donations
             </h1>
