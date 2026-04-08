@@ -1,26 +1,27 @@
 import backgroundImg from "/mobileHomeImg.jpg"
+import mobileLogo from "/logoText.png"
 
-export function HeroSection({
-    screenWidth
-}){
+export function HeroSection(){
     const heroVid = "/s7HeroVid.mp4"
     // const backgroundImg = `url("/mobileHomeImg.jpg")`
 
 
     return(
         <div
-            // style={{
-            //     backgroundImage:
-            //         screenWidth <= 767 ? backgroundImg : "none"
-            // }}
-            // className="relative h-screen md:h-[calc(100vh-7.5rem)] bg-center bg-no-repeat bg-cover overflow-hidden"
-            className="lg:relative h-90 lg:h-screen"
+            className="lg:relative h-90 md:h-[4/5] lg:h-screen"
         >
             <div
                 style={{backgroundImage: `url(${backgroundImg})`}}
-                className="block lg:hidden h-full w-full bg-center bg-no-repeat bg-cover"
+                className="flex md:hidden h-full w-full bg-center bg-no-repeat bg-cover items-center"
             >
-
+                <div
+                    className="bg-black/60 w-full h-full flex items-center px-6 rounded"
+                >
+                    <img 
+                        src={mobileLogo}
+                        className="h-[40%]"
+                    />
+                </div>
             </div>
 
             <video
@@ -28,7 +29,7 @@ export function HeroSection({
                 loop
                 muted 
                 playsInline
-                className="hidden lg:block absolute inset-0 w-full h-full object-cover"
+                className="hidden md:block absolute inset-0 w-full h-115 lg:h-full object-cover"
             >
                 <source src={heroVid} type="video/mp4" />
             </video>

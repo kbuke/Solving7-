@@ -52,7 +52,7 @@ export function DonatePopUp({
 
     return(
         <form
-            className="bg-white w-[70%] h-[60%] rounded flex flex-col"
+            className="bg-white w-[90%] lg:w-[70%] h-[90%] lg:h-[60%] rounded flex flex-col"
             onSubmit={handleSubmit(handleDonationSubmit)}
         >
             <div
@@ -93,24 +93,24 @@ export function DonatePopUp({
                     }}
                     errors={errors}
                     register={register}
-                    divCss={"grid grid-cols-[1fr_2fr] gap-4 w-full"}
+                    divCss={"lg:grid lg:grid-cols-[1fr_2fr] gap-4 w-full border-b border-black/30 py-4"}
                     labelCss={"uppercase font-bold tracking-widest"}
-                    inputCss={"border w-120 text-center rounded-lg"}
+                    inputCss={"border lg:w-120 text-center rounded-lg"}
                 />
 
                 <LabelInput 
                     labelText={"Please enter the amount you wish to donate"}
                     inputType={"text"}
-                    placeholderText={"Please enter the amount you wish to donate (ZAR)"}
+                    placeholderText={"Enter Amount in ZAR"}
                     inputName={"amount"}
                     inputValidations={{
                         required: "Please enter a value from ZAR 0.01"
                     }}
                     errors={errors}
                     register={register}
-                    divCss={"grid grid-cols-[1fr_2fr] gap-4 w-full mt-4"}
+                    divCss={"lg:grid lg:grid-cols-[1fr_2fr] gap-4 w-full mt-4"}
                     labelCss={"uppercase font-bold tracking-widest"}
-                    inputCss={"border w-120 text-center rounded-lg"}
+                    inputCss={"border lg:w-120 text-center rounded-lg"}
                 />
             </div>
 
