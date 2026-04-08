@@ -8,6 +8,7 @@ class Members(BaseResource):
         "memberName": "name",
         "memberPosition": "position",
         "memberIntro": "intro",
+        "memberImg": "img",
         "teamId": "team_id"
     }
 
@@ -24,6 +25,7 @@ class SpecificMember(BaseResource):
         "memberName": "name",
         "memberPosition": "position",
         "memberIntro": "intro",
+        "memberImg": "img",
         "teamId": "team_id"
     }
 

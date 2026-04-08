@@ -16,6 +16,7 @@ class MemberModel(db.Model, SerializerMixin):
     name = db.Column(db.String, nullable = False)
     position = db.Column(db.String, nullable = False)
     intro = db.Column(db.String, nullable = False)
+    img = db.Column(db.String, nullable = True)
 
     team_id = belongs_to("teams")
     team = db.relationship("TeamModel", back_populates = "members")

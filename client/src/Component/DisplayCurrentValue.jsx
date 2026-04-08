@@ -12,9 +12,12 @@ export function DisplayCurrentValue(
         const resetValues = {}
 
         instanceInputs.forEach(({key, accessor}) => {
-            resetValues[key] = selectedInstance[accessor]
+            const value = selectedInstance[accessor]
+
+            // resetValues[key] = selectedInstance[accessor]
+            resetValues[key] = value ?? ""
         })
         
         reset(resetValues)
-    }, [selectedInstance, isPatch])
+    }, [selectedInstance, isPatch, reset])
 }

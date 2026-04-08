@@ -10,6 +10,8 @@ export function AdminEmployees({
     return allEmployees?.map((employee, index) => {
         const employeeName = employee?.name
         const employeeImg = EmployeeImg(employeeName)
+        console.log(employee)
+        const altImg = employee?.img
         const employeeRole = employee?.position 
         const employeeInfo = employee?.intro 
 
@@ -17,7 +19,7 @@ export function AdminEmployees({
             <AdminPopUpContents 
                 key={index}
                 instance={employee}
-                instanceImg={employeeImg}
+                instanceImg={altImg? altImg : employeeImg}
                 instanceName={employeeName}
                 instanceText={[
                     {

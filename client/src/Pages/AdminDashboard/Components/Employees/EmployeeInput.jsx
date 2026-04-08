@@ -36,6 +36,11 @@ export function EmployeeInput({
         },
 
         {
+            key: "memberImg",
+            accessor: "img"
+        },
+
+        {
             key: "teamId",
             accessor: "team_id"
         }
@@ -46,7 +51,7 @@ export function EmployeeInput({
     return(
        <div>
             <LabelInput
-                labelText={"Member Name"}
+                labelText={"Member Name*"}
                 inputType={"text"}
                 placeholderText={"Please Enter Member Name"}
                 inputName={"memberName"}
@@ -63,7 +68,7 @@ export function EmployeeInput({
             />
 
             <LabelInput
-                labelText={"Member Position"}
+                labelText={"Member Position*"}
                 inputType={"textarea"}
                 placeholderText={"Please Enter Member Position"}
                 inputName={"memberPosition"}
@@ -74,6 +79,20 @@ export function EmployeeInput({
                 containerPaddingX={"px-4"}
                 labelCss={"uppercase lg:text-2xl"}
                 textareaCss={"border h-32 rounded px-4 lg:w-[60%]"}
+                errors={errors}
+                register={register}
+                formCss={"font-bold text-2xl"}
+            />
+
+            <LabelInput
+                labelText={"Member Image"}
+                inputType={"text"}
+                placeholderText={"Please Enter Member Image"}
+                inputName={"memberImg"}
+                marginTop={"mt-5"}
+                containerPaddingX={"px-4"}
+                labelCss={"uppercase lg:text-2xl"}
+                inputCss={"border rounded px-4 lg:w-[60%] lg:h-16"}
                 errors={errors}
                 register={register}
                 formCss={"font-bold text-2xl"}
