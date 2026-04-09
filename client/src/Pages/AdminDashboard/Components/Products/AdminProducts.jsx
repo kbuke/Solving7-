@@ -57,13 +57,15 @@ export function AdminProducts({
                 setAllProductImages={setAllProductImages}
             />
             : allProducts?.map((product, index) => {
+                console.log(product)
                 const productName = product?.name
                 const productId = product?.id
                 const productInfo = product?.info
                 const productWorld = product?.state_of_world
                 const productProgress = product?.progress
                 const productMaterial = product?.material
-                const productImg = ProductImg(productName)
+                const productImg = ProductImg(productName.replace(/\s+/g, ""))
+                const productBaseImg = product?.base_img
 
                 const productImages = true
 
@@ -105,7 +107,7 @@ export function AdminProducts({
                 <AdminPopUpContents 
                     key={index}
                     instance={product}
-                    instanceImg={productImg}
+                    instanceImg={productBaseImg ? productBaseImg : productImg}
                     instanceName={productName}
                     instanceText={[
                         {

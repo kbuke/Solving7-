@@ -13,10 +13,11 @@ export function SustainablePg(){
 
     return(
         <section
-            className="mt-14 lg:mt-0 md:py-10 md:px-20"
+            className="mt-14 lg:mt-0 "
         >
             <SectionHeading 
                 title={"UN Sustainable Goals"}
+                additionalCss={"md:px-20"}
             />
 
             <SustainableText />

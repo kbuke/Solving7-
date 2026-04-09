@@ -35,6 +35,16 @@ export function ProductInput({
         {
             key: "productProgress",
             accessor: "progress"
+        },
+
+        {
+            key: "productCardImg",
+            accessor: "card_img"
+        },
+
+        {
+            key: "productBaseImg",
+            accessor: "base_img"
         }
     ]
 
@@ -56,6 +66,34 @@ export function ProductInput({
                         selectedInstance
                     })
                 }}
+                marginTop={"mt-5"}
+                containerPaddingX={"px-4"}
+                labelCss={"uppercase lg:text-2xl"}
+                inputCss={"border rounded px-4 lg:w-[60%] lg:h-16"}
+                errors={errors}
+                register={register}
+                formCss={"font-bold text-2xl"}
+            />
+
+            <LabelInput
+                labelText={"Product Base Img"}
+                inputType={"text"}
+                placeholderText={"Please Enter Product Base Image"}
+                inputName={"productBaseImg"}
+                marginTop={"mt-5"}
+                containerPaddingX={"px-4"}
+                labelCss={"uppercase lg:text-2xl"}
+                inputCss={"border rounded px-4 lg:w-[60%] lg:h-16"}
+                errors={errors}
+                register={register}
+                formCss={"font-bold text-2xl"}
+            />
+
+            <LabelInput
+                labelText={"Product Card Img"}
+                inputType={"text"}
+                placeholderText={"Please Enter Product Card Image"}
+                inputName={"productCardImg"}
                 marginTop={"mt-5"}
                 containerPaddingX={"px-4"}
                 labelCss={"uppercase lg:text-2xl"}

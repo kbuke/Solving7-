@@ -9,11 +9,9 @@ export function AchievedSustainableGoals({
 }){
     const [selectedGoal, setSelectedGoal] = useState()
 
-    console.log(selectedGoal)
-
     return(
         <div
-            className="mt-20"
+            className="mt-20 bg-gray-500 md:px-20 py-4 text-white"
         >
             <SectionHeading 
                 title={"Achieved UN Goals"}
@@ -26,11 +24,11 @@ export function AchievedSustainableGoals({
                     Solving 7 aligns its work with key United Nations Sustainable Development Goals (SDGs), ensuring measurable environmental, social, and economic impact.
                 </p>
 
-                {/* <p
+                <p
                     className="home-text"
                 >
                     By integrating infrastructure, livelihoods, and behaviour change, Solving 7 delivers multi-SDG impact through a single circular ecosystem.
-                </p> */}
+                </p>
 
                 <p
                     className="home-text"
@@ -64,12 +62,6 @@ export function AchievedSustainableGoals({
                 </PopUp>
                 : null
             }
-
-            <p
-                className="home-text"
-            >
-                By integrating infrastructure, livelihoods, and behaviour change, Solving 7 delivers multi-SDG impact through a single circular ecosystem.
-            </p>
         </div>
     )
 }

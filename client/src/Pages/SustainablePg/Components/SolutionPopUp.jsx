@@ -1,16 +1,19 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons"
 import { PillarImg } from "../../../Component/PillarImg"
+import { Link } from "react-router"
 
 export function SolutionPopUp({
     selectedGoal,
     setSelectedGoal
 }){
     const goalPillars = selectedGoal?.pillars
+
     return(
         <div
-            className="bg-white w-[90%] h-[90%] lg:h-[72%] rounded overflow-y-auto"
+            className="bg-white w-[90%] h-[90%] lg:h-[72%] rounded overflow-y-auto text-black"
         >
+            {/* Mobile View */}
             <div
                 className="lg:hidden"
             >
@@ -43,12 +46,13 @@ export function SolutionPopUp({
                 </div>
             </div>
 
+            {/* Desktop View */}
             <div
                 className="hidden lg:grid grid-cols-[1fr_3fr]"
             >
                 <img 
                     src={`/UN-PopUp/${selectedGoal?.id}.png`}
-                    className="h-200"
+                    className="h-176"
                 />
 
                 <div
@@ -83,16 +87,17 @@ export function SolutionPopUp({
                     </h1>
 
                     <div
-                        className="grid grid-cols-2 gap-4"
+                        className="grid grid-cols-2 gap-4 px-4 py-2"
                     >
                         {goalPillars.map((pillar, index) => {
                             const pillarId = pillar?.id
                             const pillarName = pillar?.name
 
                             return(
-                                <div
+                                <Link
                                     key={index}
-                                    className="mt-4 py-2 grid grid-cols-[1fr_4fr] gap-4 items-center border-b border-black/40"
+                                    className="mt-4 py-2 grid grid-cols-[1fr_4fr] gap-4 items-center border-b border-black/40 bg-gray-400 rounded-xl hover:-translate-y-2 duration-200 hover:shadow-lg text-white px-4"
+                                    to={`/pillars/${pillarId}`}
                                 >
                                     <img 
                                         src={PillarImg(pillarId)}
@@ -106,7 +111,7 @@ export function SolutionPopUp({
                                             className="font-bold"
                                         >Pillar {pillarId}: </span> {pillarName}
                                     </h2>
-                                </div>
+                                </Link>
                             )
                         })}
                     </div>

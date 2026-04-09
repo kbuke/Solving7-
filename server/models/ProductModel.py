@@ -17,6 +17,8 @@ class ProductModel(db.Model, SerializerMixin):
     state_of_world = db.Column(db.String, nullable = False, server_default = "")
     material = db.Column(db.String, nullable = False, server_default = "")
     progress = db.Column(db.String, nullable = False, server_default = "")
+    card_img = db.Column(db.String, nullable = True)
+    base_img = db.Column(db.String, nullable = True)
 
     images = db.relationship("ProductPictureModel", backref = "product", lazy=True)
 

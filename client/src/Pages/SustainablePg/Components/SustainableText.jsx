@@ -1,7 +1,7 @@
 export function SustainableText(){
     return(
         <div
-            className="block lg:grid lg:grid-cols-[3fr_2fr] gap-10"
+            className="block lg:grid lg:grid-cols-[3fr_2fr] gap-10 md:px-20"
         >
             <div>
                <img 

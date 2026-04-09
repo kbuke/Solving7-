@@ -117,7 +117,7 @@ export function SpecificPillarPage(){
                                 to={`/products/${product?.id}`}
                             >
                                 <img 
-                                    src={`/ProductPics/${productName}.png`}
+                                    src={`/ProductPics/${productName.replace(/\s+/g, "")}.png`}
                                     className="h-30 w-30 rounded-xl"
                                 />
 

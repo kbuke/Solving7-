@@ -11,7 +11,9 @@ class Products(BaseResource):
         "productInfo": "info",
         "stateOfWorld": "state_of_world",
         "productMaterial": "material",
-        "productProgress": "progress"
+        "productProgress": "progress",
+        "productCardImg": "card_img",
+        "productBaseImg": "base_img"
     }
 
     def get(self):
@@ -28,7 +30,9 @@ class SpecificProduct(BaseResource):
         "productInfo": "info",
         "stateOfWorld": "state_of_world",
         "productMaterial": "material",
-        "productProgress": "progress"
+        "productProgress": "progress",
+        "productCardImg": "card_img",
+        "productBaseImg": "base_img"
     }
 
     def get(self, id):
