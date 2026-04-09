@@ -79,13 +79,19 @@ export function AboutSection({
                     </p>
                 </div>
 
-                <img 
-                    src={screenWidth < 1023
-                        ? "/aboutMobImg.jpg"
-                        : "/aboutDtImg.jpg"
-                    }
-                    className="rounded-lg mt-4 lg:mt-0 lg:h-180"
-                />
+                <>
+                    {/* Mobile image */}
+                    <img 
+                        src="/aboutMobImg.jpg"
+                        className="rounded-lg mt-4 lg:hidden"
+                    />
+
+                    {/* Desktop image */}
+                    <img 
+                        src="/aboutDtImg.jpg"
+                        className="hidden lg:block rounded-lg mt-4 lg:mt-0 lg:h-180"
+                    />
+                </>
             </div>
         </section>
     )

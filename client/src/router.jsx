@@ -11,6 +11,7 @@ import { PillarsPg } from "./Pages/PillarsPg/PillarsPg";
 import { ProductsPg } from "./Pages/ProductsPg/ProductsPg";
 import { SpecificPillarPage } from "./Pages/SpecificPillarPg/SpecificPillarPg";
 import { SpecificProductsPage } from "./Pages/SpecificProductsPage/SpecificProductsPage";
+import { PgNotFound } from "./Pages/404/PgNotFound";
 
 export const router = createBrowserRouter([
     {
@@ -27,7 +28,8 @@ export const router = createBrowserRouter([
                     {path: "pillars", element: <PillarsPg />},
                     {path: "pillars/:id", element: <SpecificPillarPage />},
                     {path: "products", element: <ProductsPg />},
-                    {path: "products/:id", element: <SpecificProductsPage />}
+                    {path: "products/:id", element: <SpecificProductsPage />},
+                    {path: "*", element: <PgNotFound />}
                 ]
             },
 

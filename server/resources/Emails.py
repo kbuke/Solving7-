@@ -6,9 +6,13 @@ from email.message import EmailMessage
 import smtplib
 from dotenv import load_dotenv
 import os
+import resend
 
 load_dotenv()
 # password = os.getenv("GMAIL_PASSWORD")
+
+resend.api_key = os.getenv("RESEND_API_KEY")
+
 
 class EmailList(Resource):
     def get(self):
@@ -16,39 +20,57 @@ class EmailList(Resource):
         return email
     
     def post(self):
-        json = request.get_json()
+        json_data = request.get_json()
         
         recipient_email = os.getenv("S7_EMAIL")
-        password=os.getenv("S7_EMAIL_PW")
+        # password=os.getenv("S7_EMAIL_PW")
 
         try:
             new_email = EmailModel(
-                email_subject = json.get("emailSubject"),
-                email_message = json.get("emailMessage"),
-                sender_email = json.get("senderEmail"),
+                email_subject = json_data.get("emailSubject"),
+                email_message = json_data.get("emailMessage"),
+                sender_email = json_data.get("senderEmail"),
                 recipient_email = recipient_email
             )
             db.session.add(new_email)
             db.session.commit()
 
-            # Build the email message
-            msg = EmailMessage()
-            msg["Subject"] = new_email.email_subject
-            msg["From"] = f"My App Contact Form <{recipient_email}>"
-            msg["To"] = new_email.recipient_email
-            msg["Reply-To"] = new_email.sender_email
-            msg.set_content(
-                f"Message from: {new_email.sender_email}\n\n{new_email.email_message}"
-            )
+            # Send email with Resend 
+            resend.Emails.send({
+                "from": f"Solving7 <{recipient_email}>",
+                "to": [recipient_email],
+                "reply_to": json_data.get("senderEmail"),
+                "subject": new_email.email_subject,
+                "html": f"""
+                    <p><strong>From:</strong> {new_email.sender_email}</p>
+                    <p><strong>Message:</strong></p>
+                    <p>{new_email.email_message}</p>
+                """
+            })
 
-            # Send it using Gmail SMTP
-            with smtplib.SMTP_SSL("smtp.gmail.com", 465) as smtp:
-                smtp.login(recipient_email, password)
-                smtp.send_message(msg)
-            
             return {"message": "Email sent successfully"}, 201
-                
-        except ValueError as e:
-            return {"error": str(e)}, 400
+
         except Exception as e:
             return {"error": f"Failed to send email: {str(e)}"}, 500
+
+            # Build the email message
+            # msg = EmailMessage()
+            # msg["Subject"] = new_email.email_subject
+            # msg["From"] = f"My App Contact Form <{recipient_email}>"
+            # msg["To"] = new_email.recipient_email
+            # msg["Reply-To"] = new_email.sender_email
+            # msg.set_content(
+            #     f"Message from: {new_email.sender_email}\n\n{new_email.email_message}"
+            # )
+
+            # Send it using Gmail SMTP
+        #     with smtplib.SMTP_SSL("smtp.gmail.com", 465) as smtp:
+        #         smtp.login(recipient_email, password)
+        #         smtp.send_message(msg)
+            
+        #     return {"message": "Email sent successfully"}, 201
+                
+        # except ValueError as e:
+        #     return {"error": str(e)}, 400
+        # except Exception as e:
+        #     return {"error": f"Failed to send email: {str(e)}"}, 500

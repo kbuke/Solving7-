@@ -16,30 +16,50 @@ export function ProductsPg(){
             <SectionHeading title={"Products"} />
 
             <div
-                className="py-10 px-4 flex flex-col lg:grid lg:grid-cols-3 lg:gap-10"
+                className="py-10 px-4 lg:grid lg:grid-cols-3 lg:justify-items-center gap-4 lg:gap-10"
             >
                 {allProducts?.map((product, index) => {
                     const productName = product?.name
                     const productId = product?.id
 
-                    console.log(productName)
                     return(
-                        <Link
-                            key={index}
-                            to={`/products/${productId}`}
-                            className="h-140 w-80 mb-4 lg:h-170 lg:w-120 rounded-xl hover:-translate-y-2 duration-200 hover:shadow-lg bg-center bg-no-repeat bg-cover flex"
-                            style={{backgroundImage: `url(${`/ProductCardImg/${productName.replace(/\s+/g, "")}.png`})`}}
-                        >
-                            <div
-                                className="w-full bg-black/60 text-white h-20 self-end flex items-center justify-center rounded-b-xl"
+                        <>
+                            {/* Mobile View */}
+                            <Link
+                                to={`/products/${productId}`}
+                                className="flex lg:hidden bg-gray-400 mb-4 rounded-xl items-center gap-4 h-30"
                             >
+                                <img 
+                                    src={`/ProductPics/${productName.replace(/\s+/g, "")}.png`}
+                                    className="h-30 rounded"
+                                    alt={`${productName}-img`}
+                                />
+
                                 <h1
-                                    className="text-4xl"
+                                    className="uppercase text-white font-bold tracking-widest text-xl"
                                 >
                                     {productName}
                                 </h1>
-                            </div>
-                        </Link>
+                            </Link>
+
+                            {/* Desktop View */}
+                            <Link
+                                key={index}
+                                to={`/products/${productId}`}
+                                className="hidden lg:flex h-100 mb-4 lg:h-150 lg:w-100 rounded-xl hover:-translate-y-2 duration-200 hover:shadow-lg bg-center bg-no-repeat bg-cover"
+                                style={{backgroundImage: `url(${`/ProductCardImg/${productName.replace(/\s+/g, "")}.png`})`}}
+                            >
+                                <div
+                                    className="w-full bg-black/60 text-white h-20 self-end flex items-center justify-center rounded-b-xl"
+                                >
+                                    <h1
+                                        className="text-4xl"
+                                    >
+                                        {productName}
+                                    </h1>
+                                </div>
+                            </Link>
+                        </>
                     )
                 })}
             </div>
