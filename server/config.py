@@ -31,7 +31,7 @@ app.config["MAIL_USE_SSL"] = False
 mail = Mail(app)
 
 # Hanlde Donations
-PAYSTACK_SECRET = os.getenv("PAYSTACK_TEST_SECRET_KEY")
+PAYSTACK_TEST_SECRET_KEY = os.getenv("PAYSTACK_TEST_SECRET_KEY")
 PAYSTACK_URL = "https://api.paystack.co/transaction/initialize"
 PAYSTACK_LIVE_SECRET_KEY = os.getenv("PAYSTACK_LIVE_SECRET_KEY")
 

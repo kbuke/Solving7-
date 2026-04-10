@@ -33,14 +33,14 @@ export function PostEmail({
 
     return(
         <form
-            className="
-                rounded mt-4 bg-gray-500/80 px-4 py-10
-            "
+            className={`
+                rounded mt-4 bg-gray-500/80 px-2 lg:px-4 py-6 lg:py-10
+            `}
             onSubmit={handleSubmit(handleEmailPost)}
         >
             {emailSent
                 ?<div
-                    className="bg-green-600/60 h-22 w-[35%] rounded-lg flex flex-col tems-center justify-center px-2"
+                    className="bg-green-600/60 h-32 lg:w-[45%] rounded-lg flex flex-col tems-center justify-center px-2"
                 >
                     <h1
                         className="uppercase text-white text-xl font-bold"

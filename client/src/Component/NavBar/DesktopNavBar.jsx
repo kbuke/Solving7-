@@ -21,7 +21,7 @@ export function DesktopNavBar({
             </Link>
             
             {navOptions?.map((option, index) => (
-                <div key={index} className="relative group w-[18%] text-center">
+                <div key={index} className="relative group w-[17%] text-center">
 
                     <NavLink
                         to={option?.link}

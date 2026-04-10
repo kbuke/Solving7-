@@ -1,8 +1,10 @@
-export function LoadingIcon(){
+export function LoadingIcon({
+    additionalCss
+}){
     return(
         <div className="flex items-center justify-center h-20">
             <svg
-                className="w-18 text-white animate-spin"
+                className={`w-18 text-white animate-spin ${additionalCss}`}
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"

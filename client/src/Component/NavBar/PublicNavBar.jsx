@@ -9,6 +9,7 @@ import { MobileNavBar } from "./MobileNavBar.jsx";
 import { Link } from "react-router";
 
 import NavLogo from "../../../public/logoBlack.png"
+import { text } from "@fortawesome/fontawesome-svg-core";
 
 export function PublicNavBar(){
     const [openNav, setOpenNav] = useState(false)
@@ -24,6 +25,11 @@ export function PublicNavBar(){
     }
 
     const navOptions = [
+        {
+            text: "Home",
+            link: "/"
+        },
+
         {
             text: "Pillars",
             link: "/pillars",

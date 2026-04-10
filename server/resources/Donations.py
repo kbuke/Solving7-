@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 import requests
 from flask_restful import Resource
 
-from config import PAYSTACK_SECRET
+from config import PAYSTACK_TEST_SECRET_KEY
 from config import PAYSTACK_URL
 from config import PAYSTACK_LIVE_SECRET_KEY
 
@@ -31,7 +31,7 @@ class Donations(Resource):
             response = requests.post(
                 PAYSTACK_URL,
                 headers={
-                    "Authorization": f"Bearer {PAYSTACK_SECRET}",
+                    "Authorization": f"Bearer {PAYSTACK_TEST_SECRET_KEY}",
                     # "Authorization": f"Bearer {PAYSTACK_LIVE_SECRET_KEY}",
                     "Content-Type": "application/json"
                 },
@@ -68,7 +68,8 @@ class PaystackWebhook(Resource):
         if not paystack_signature:
             return {"error": "Missing Signature"}, 400 
         
-        secret = PAYSTACK_LIVE_SECRET_KEY.encode()
+        # secret = PAYSTACK_LIVE_SECRET_KEY.encode()
+        secret = PAYSTACK_TEST_SECRET_KEY.encode()
 
         computed_signature = hmac.new(
             secret,
@@ -91,7 +92,7 @@ class PaystackWebhook(Resource):
             verify_url = f"https://api.paystack.co/transaction/verify/{reference}"
             verify_res = requests.get(
                 verify_url,
-                headers={"Authorization": f"Bearer {PAYSTACK_SECRET}"}
+                headers={"Authorization": f"Bearer {PAYSTACK_TEST_SECRET_KEY}"}
                 # headers={"Authorization": f"Bearer {PAYSTACK_LIVE_SECRET_KEY}"}
             ).json()
 
@@ -127,8 +128,10 @@ class VerifyTransaction(Resource):
 
         response = requests.get(
             url,
-            headers={"Authorization": f"Bearer {PAYSTACK_SECRET}"}
+            headers={"Authorization": f"Bearer {PAYSTACK_TEST_SECRET_KEY}"}
             # headers={"Authorization": f"Bearer {PAYSTACK_LIVE_SECRET_KEY}"}
         )
+
+        print(response.json())
 
         return response.json()

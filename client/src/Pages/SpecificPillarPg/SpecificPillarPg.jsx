@@ -76,7 +76,7 @@ export function SpecificPillarPage(){
             </div>
 
             <div
-                className="bg-gray-400 p-6 flex flex-col lg:grid lg:grid-cols-[2fr_1fr] mt-8"
+                className={`bg-gray-400 p-6 flex flex-col lg:grid lg:grid-cols-[2fr_1fr] mt-8 ${pillarProducts.length <= 1 ? "lg:h-90" : null}`}
             >
                 <div
                     className="lg:border-r"
@@ -103,30 +103,37 @@ export function SpecificPillarPage(){
                 <div
                     className="mt-4 lg:mt-0 lg:ml-4"
                 >
-                    <h1
-                        className="uppercase text-white text-4xl tracking-widest mb-8"
-                    >
-                        Products
-                    </h1>
-                    {pillarProducts?.map((product, index) => {
-                        const productName = product?.name 
-                        return(
-                            <Link
-                                key={index}
-                                className="flex items-center gap-4 bg-white lg:bg-none uppercase rounded-xl p-2 hover:-translate-y-2 duration-200 hover:cursor-pointer mb-4"
-                                to={`/products/${product?.id}`}
+                    {pillarProducts?.length > 0
+                        ?
+                        <div>
+                            <h1
+                                className="uppercase text-white text-4xl tracking-widest mb-8"
                             >
-                                <img 
-                                    src={`/ProductPics/${productName.replace(/\s+/g, "")}.png`}
-                                    className="h-30 w-30 rounded-xl"
-                                />
+                                Products
+                            </h1>
+                            {pillarProducts?.map((product, index) => {
+                                const productName = product?.name 
+                                return(
+                                    <Link
+                                        key={index}
+                                        className="flex items-center gap-4 bg-white lg:bg-none uppercase rounded-xl p-2 hover:-translate-y-2 duration-200 hover:cursor-pointer mb-4"
+                                        to={`/products/${product?.id}`}
+                                    >
+                                        <img 
+                                            src={`/ProductPics/${productName.replace(/\s+/g, "")}.png`}
+                                            className="h-30 w-30 rounded-xl"
+                                        />
 
-                                <p>
-                                    {productName}
-                                </p>
-                            </Link>
-                        )
-                    })}
+                                        <p>
+                                            {productName}
+                                        </p>
+                                    </Link>
+                                )
+                            })}
+                        </div>
+                        :
+                        null
+                    }
                 </div>
             </div>
         </section>

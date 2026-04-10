@@ -13,38 +13,51 @@ export function ArticlePopUp({
     const articleDate = selectedArticle?.posted
     return(
         <div
-            className="bg-white h-[90%] w-[90%] py-4 px-20 rounded-xl overflow-y-auto"
+            className="bg-white h-[90%] w-[90%] lg:py-4 lg:px-20 rounded-xl overflow-y-auto"
         >
             <div
-                className="flex justify-between items-center border-b pb-4"
+                className="lg:flex lg:justify-between items-center border-b pb-4"
             >
+                <img 
+                    src={articleImg}
+                    className="w-full rounded-t-xl lg:hidden"
+                />
+
                 <div>
                     <h1
-                        className="uppercase text-5xl tracking-[4px] font-bold"
+                        className="uppercase text-5xl tracking-[4px] font-bold px-4"
                     >
                         {articleHeading}
                     </h1>
 
-                    <p>
+                    <p
+                        className="text-lg mt-0 lg:px-4 lg:mt-6 lg:text-xl"
+                    >
                         {ConvertDate(articleDate)}
                     </p>
                 </div>
 
-                <FontAwesomeIcon 
-                    icon={faCircleXmark}
-                    className="text-5xl lg:rounded-full text-red-600/80 lg:cursor-pointer"
-                    onClick={() => setSelectedArticle(null)}
-                />
+                <div
+                    className="hidden lg:block"
+                >
+                    <FontAwesomeIcon 
+                        icon={faCircleXmark}
+                        className="lg:block text-5xl lg:rounded-full text-red-600/80 lg:cursor-pointer"
+                        onClick={() => setSelectedArticle(null)}
+                    />
+                </div>
             </div>
 
             <div>
                 <img 
                     src={articleImg}
                     alt={`${articleHeading}-img`}
-                    className="float-right w-[45%] h-auto mb-4 rounded-lg object-cover"
+                    className="float-right w-[45%] h-auto mb-4 rounded-lg object-cover hidden lg:block"
                 />
 
-                <p>
+                <p
+                    className="text-lg mt-0 px-1 lg:px-4 lg:mt-6 lg:text-xl"
+                >
                     {articleText}
                 </p>
             </div>

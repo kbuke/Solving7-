@@ -71,48 +71,47 @@ export function DonatePopUp({
                 />
             </div>
 
-            {makingDonation &&
-                <LoadingIcon />
+            {makingDonation?
+                <p>Loading...</p>
+                :
+                <div
+                    className="px-4 mt-4"
+                >
+                    <LabelInput 
+                        labelText={"Please enter your email address"}
+                        inputType={"text"}
+                        placeholderText={"Please enter your email address"}
+                        inputName={"email"}
+                        inputValidations={{
+                            required: "Please enter a value",
+                            pattern: {
+                                value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                                message: "Please enter a valid email address"
+                            }
+                        }}
+                        errors={errors}
+                        register={register}
+                        divCss={"lg:grid lg:grid-cols-[1fr_2fr] gap-4 w-full border-b border-black/30 py-4"}
+                        labelCss={"uppercase font-bold tracking-widest"}
+                        inputCss={"border lg:w-120 text-center rounded-lg"}
+                    />
+
+                    <LabelInput 
+                        labelText={"Please enter the amount you wish to donate"}
+                        inputType={"text"}
+                        placeholderText={"Enter Amount in ZAR"}
+                        inputName={"amount"}
+                        inputValidations={{
+                            required: "Please enter a value from ZAR 0.01"
+                        }}
+                        errors={errors}
+                        register={register}
+                        divCss={"lg:grid lg:grid-cols-[1fr_2fr] gap-4 w-full mt-4"}
+                        labelCss={"uppercase font-bold tracking-widest"}
+                        inputCss={"border lg:w-120 text-center rounded-lg"}
+                    />
+                </div>
             }
-
-
-            <div
-                className="px-4 mt-4"
-            >
-                <LabelInput 
-                    labelText={"Please enter your email address"}
-                    inputType={"text"}
-                    placeholderText={"Please enter your email address"}
-                    inputName={"email"}
-                    inputValidations={{
-                        required: "Please enter a value",
-                        pattern: {
-                            value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                            message: "Please enter a valid email address"
-                        }
-                    }}
-                    errors={errors}
-                    register={register}
-                    divCss={"lg:grid lg:grid-cols-[1fr_2fr] gap-4 w-full border-b border-black/30 py-4"}
-                    labelCss={"uppercase font-bold tracking-widest"}
-                    inputCss={"border lg:w-120 text-center rounded-lg"}
-                />
-
-                <LabelInput 
-                    labelText={"Please enter the amount you wish to donate"}
-                    inputType={"text"}
-                    placeholderText={"Enter Amount in ZAR"}
-                    inputName={"amount"}
-                    inputValidations={{
-                        required: "Please enter a value from ZAR 0.01"
-                    }}
-                    errors={errors}
-                    register={register}
-                    divCss={"lg:grid lg:grid-cols-[1fr_2fr] gap-4 w-full mt-4"}
-                    labelCss={"uppercase font-bold tracking-widest"}
-                    inputCss={"border lg:w-120 text-center rounded-lg"}
-                />
-            </div>
 
             <button
                 className="bg-green-500 text-white px-4 py-2 rounded w-40 self-center mt-10 uppercase cursor-pointer hover:-translate-y-2 duration-200 hover:shadow h-15"

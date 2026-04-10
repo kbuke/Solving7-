@@ -26,12 +26,12 @@ export function InfoSection(){
     }
     return(
         <section
-            className="home-section bg-gray-600 grid grid-cols-2 gap-8 lg:gap-0 lg:grid-cols-3 justify-center items-center"
+            className="home-section bg-gray-600 grid grid-cols-2 gap-8 lg:gap-0 lg:grid-cols-3 justify-items-center items-center"
         >
            <div>
-                {infoObject("Address", "tester")}
+                {infoObject("Address", "66 Peter Place, Block 1, Johannesburg")}
 
-                {infoObject("Phone Number", "00")}
+                {infoObject("Phone Number", "+27820792319")}
 
                 {infoObject("Email", "info@solving7.com", "mailto:info@s7.com")}
             </div> 

@@ -12,6 +12,7 @@ import { ProductsPg } from "./Pages/ProductsPg/ProductsPg";
 import { SpecificPillarPage } from "./Pages/SpecificPillarPg/SpecificPillarPg";
 import { SpecificProductsPage } from "./Pages/SpecificProductsPage/SpecificProductsPage";
 import { PgNotFound } from "./Pages/404/PgNotFound";
+import { DonationSuccess } from "./Pages/DonationSuccess/DonationSuccess";
 
 export const router = createBrowserRouter([
     {
@@ -29,6 +30,7 @@ export const router = createBrowserRouter([
                     {path: "pillars/:id", element: <SpecificPillarPage />},
                     {path: "products", element: <ProductsPg />},
                     {path: "products/:id", element: <SpecificProductsPage />},
+                    {path: "success", element: <DonationSuccess />},
                     {path: "*", element: <PgNotFound />}
                 ]
             },

@@ -2,13 +2,14 @@ import backgroundImg from "/mobileHomeImg.jpg"
 import mobileLogo from "/logoText.png"
 
 export function HeroSection(){
-    const heroVid = "/s7HeroVid.mp4"
+    // const heroVid = "/s7HeroVid.mp4"
+    const heroVid = "/newHeroVid.mp4"
     // const backgroundImg = `url("/mobileHomeImg.jpg")`
 
 
     return(
         <div
-            className="lg:relative h-90 md:h-[4/5] lg:h-screen"
+            className="lg:relative h-90 md:h-[4/5] lg:h-[calc(100vh-7.5rem)]"
         >
             <div
                 style={{backgroundImage: `url(${backgroundImg})`}}
