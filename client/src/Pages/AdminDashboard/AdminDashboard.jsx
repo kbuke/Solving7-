@@ -45,6 +45,7 @@ export function AdminDashboard(){
                 const res = await fetch("/api/check-admin", {
                     credentials: "include",
                 })
+                console.log(res)
                 if (res.status === 401) {
                     navigate("/login")
                 }

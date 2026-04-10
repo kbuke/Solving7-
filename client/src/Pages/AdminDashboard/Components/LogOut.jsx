@@ -12,6 +12,7 @@ export function LogOut({ setLogout }) {
             credentials: "include"
         })
         await checkAuth()
+        console.log("logging out....")
         navigate("/login")
     }
 
