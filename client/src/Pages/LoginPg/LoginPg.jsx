@@ -27,7 +27,6 @@ export function LoginPg(){
                 }
             } catch (err) {
                 console.error(err)
-                navigate("/admin")
             }
         }
         checkAuth()

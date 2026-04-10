@@ -45,12 +45,11 @@ export function AdminDashboard(){
                 const res = await fetch("/api/check-admin", {
                     credentials: "include",
                 })
-                if (!res.ok) {
+                if (res.status === 401) {
                     navigate("/login")
                 }
             } catch (err) {
                 console.error(err)
-                navigate("/login")
             }
         }
         checkAuth()
