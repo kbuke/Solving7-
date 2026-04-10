@@ -18,7 +18,8 @@ function App() {
   const [allNews, setAllNews] = useState()
   const [allProductImages, setAllProductImages] = useState()
   const [allPartners, setAllPartners] = useState()
-  const [allDonations, setAllDonations] = useState()
+  
+  const API = import.meta.env.VITE_API_URL || ""
   
 
   // Fetch all values for each model
