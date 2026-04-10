@@ -18,6 +18,8 @@ from resources.ProductImages import ProductImage, SpecificProductImg
 from resources.Partners import Partners, SpecificPartner
 from resources.Donations import Donations, PaystackWebhook, VerifyTransaction
 
+from flask import send_from_directory
+
 add_resource(Members, "/api/members")
 add_resource(SpecificMember, "/api/members/<int:id>")
 
@@ -59,6 +61,14 @@ add_resource(SpecificPartner, "/api/partners/<int:id>")
 add_resource(Donations, "/api/donations")
 add_resource(PaystackWebhook, "/paystack/webhook")
 add_resource(VerifyTransaction, "/verify/<string:reference>")
+
+@app.route("/")
+def home():
+    return send_from_directory("../client/dist", "index.html")
+
+@app.route("/<path:path>")
+def static_files(path):
+    return send_from_directory("../client/dist", path)
 
 
 if __name__ == "__main__":
