@@ -1,4 +1,4 @@
-import { useOutletContext } from "react-router"
+import { useOutletContext } from "react-router-dom"
 import { LabelInput } from "../../Component/LabelInput"
 import { useForm } from "react-hook-form"
 import {usePost} from "../../CustomHooks/usePost.js"
@@ -13,27 +13,19 @@ export function LoginPg(){
     const error = appData?.error
     const setError = appData?.setError
 
-    const loading = appData?.loading
     const setLoading = appData?.setLoading
 
     const navigate = useNavigate()
 
     // Ensure a user can not access this page if they are already logged in. 
+    const { user, loading } = useAuth()
+
     useEffect(() => {
-        const checkAuth = async () => {
-            try {
-                const res = await fetch("/api/check-admin", {
-                    credentials: "include",
-                })
-                if (res.ok) {
-                    navigate("/admin")
-                }
-            } catch (err) {
-                console.error(err)
-            }
+        if (!loading && user) {
+            navigate("/admin")
         }
-        checkAuth()
-    }, [])
+    }, [user, loading])
+    
 
     const {
         register,
@@ -76,7 +68,7 @@ export function LoginPg(){
     return(
         <div
             className="h-screen w-full bg-center bg-no-repeat bg-cover flex items-center justify-center"
-            style={{backgroundImage:`url(/LoginBgImg/loginBgPortrait.jpg`}}
+            style={{backgroundImage:`url(/LoginBgImg/loginBgPortrait.jpg)`}}
         >
             <form
                 className="
