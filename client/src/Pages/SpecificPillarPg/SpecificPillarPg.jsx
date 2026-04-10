@@ -76,7 +76,7 @@ export function SpecificPillarPage(){
             </div>
 
             <div
-                className={`bg-gray-400 p-6 flex flex-col lg:grid lg:grid-cols-[2fr_1fr] mt-8 ${pillarProducts.length <= 1 ? "lg:h-90" : null}`}
+                className={`bg-gray-400 p-6 flex flex-col lg:grid lg:grid-cols-[2fr_1fr] mt-8 ${pillarProducts?.length <= 1 ? "lg:h-90" : null}`}
             >
                 <div
                     className="lg:border-r"
