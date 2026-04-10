@@ -57,10 +57,6 @@ metadata = MetaData(naming_convention={
     "fk": "fk_%(table_name)s_%(column_0_name)s_%(referred_table_name)s"
 })
 
-print("DATABASE_URL:", DATABASE_URL)
-print("SECRET_KEY:", app.config["SECRET_KEY"])
-print("FRONTEND_URL:", os.getenv("FRONTEND_URL"))
-
 db = SQLAlchemy(metadata=metadata)
 migrate = Migrate(app, db)
 db.init_app(app)

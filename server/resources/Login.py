@@ -14,7 +14,7 @@ class Login(Resource):
             return{"error": "Email and password required"}, 400
         
         admin_email = os.getenv("S7_EMAIL")
-        admin_password_hash = os.getenv("S7_LOGIN_PW")
+        admin_password_hash = os.getenv("LOGIN_PASSWORD")
 
         if email == admin_email and check_password_hash(admin_password_hash, password):
             session.clear()
