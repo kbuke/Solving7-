@@ -52,25 +52,3 @@ class EmailList(Resource):
 
         except Exception as e:
             return {"error": f"Failed to send email: {str(e)}"}, 500
-
-            # Build the email message
-            # msg = EmailMessage()
-            # msg["Subject"] = new_email.email_subject
-            # msg["From"] = f"My App Contact Form <{recipient_email}>"
-            # msg["To"] = new_email.recipient_email
-            # msg["Reply-To"] = new_email.sender_email
-            # msg.set_content(
-            #     f"Message from: {new_email.sender_email}\n\n{new_email.email_message}"
-            # )
-
-            # Send it using Gmail SMTP
-        #     with smtplib.SMTP_SSL("smtp.gmail.com", 465) as smtp:
-        #         smtp.login(recipient_email, password)
-        #         smtp.send_message(msg)
-            
-        #     return {"message": "Email sent successfully"}, 201
-                
-        # except ValueError as e:
-        #     return {"error": str(e)}, 400
-        # except Exception as e:
-        #     return {"error": f"Failed to send email: {str(e)}"}, 500
