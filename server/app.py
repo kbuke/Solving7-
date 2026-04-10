@@ -19,6 +19,7 @@ from resources.Partners import Partners, SpecificPartner
 from resources.Donations import Donations, PaystackWebhook, VerifyTransaction
 
 from flask import send_from_directory
+import os
 
 add_resource(Members, "/api/members")
 add_resource(SpecificMember, "/api/members/<int:id>")
@@ -62,13 +63,32 @@ add_resource(Donations, "/api/donations")
 add_resource(PaystackWebhook, "/paystack/webhook")
 add_resource(VerifyTransaction, "/verify/<string:reference>")
 
+# @app.route("/")
+# def home():
+#     return send_from_directory("../client/dist", "index.html")
+
+# @app.route("/<path:path>")
+# def static_files(path):
+#     return send_from_directory("../client/dist", path)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+REACT_BUILD_DIR = os.path.join(BASE_DIR, "..", "client", "dist")
+
+
 @app.route("/")
 def home():
-    return send_from_directory("../client/dist", "index.html")
+    return send_from_directory(REACT_BUILD_DIR, "index.html")
+
 
 @app.route("/<path:path>")
-def static_files(path):
-    return send_from_directory("../client/dist", path)
+def catch_all(path):
+    file_path = os.path.join(REACT_BUILD_DIR, path)
+
+    # If real file exists (js, css, images), serve it
+    if os.path.exists(file_path):
+        return send_from_directory(REACT_BUILD_DIR, path)
+
+    # Otherwise ALWAYS return React app
+    return send_from_directory(REACT_BUILD_DIR, "index.html")
 
 
 if __name__ == "__main__":
