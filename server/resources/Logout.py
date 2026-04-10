@@ -4,4 +4,5 @@ from flask import session
 class Logout(Resource):
     def delete(self):
         session.clear()
-        return {}, 204
+        response = {"message": "Logged out"}
+        return response, 200

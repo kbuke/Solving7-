@@ -3,6 +3,8 @@ from flask_restful import Resource
 
 class CheckAdmin(Resource):
     def get(self):
-        if session.get("is_admin"):
-            return{"message": "Authorized"}, 200 
-        return{"error": "Unauthorized"}, 401
+        return(
+            {"message": "Authorized"}
+            if session.get("is_admin")
+            else ({"error": "Unauthorized"}, 401)
+        )

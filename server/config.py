@@ -64,7 +64,16 @@ db.init_app(app)
 bcrypt = Bcrypt(app)
 api = Api(app)
 
+app.config.update(
+    SESSION_COOKIE_SAMESITE="None",
+    SESSION_COOKIE_SECURE=True
+)
+
 # -----------------------
 # CORS (better production version)
 # -----------------------
-CORS(app, supports_credentials=True)
+CORS(
+    app,
+    supports_credentials=True,
+    origins=[os.getenv("FRONTEND_URL")]
+)

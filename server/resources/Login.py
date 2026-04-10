@@ -17,7 +17,9 @@ class Login(Resource):
         admin_password_hash = os.getenv("S7_LOGIN_PW")
 
         if email == admin_email and check_password_hash(admin_password_hash, password):
+            session.clear()
             session["is_admin"] = True
+            session.permanent = True
             return {"message": "Logged in successfully"}, 200
 
         return {"error": "Invalid credentials"}, 401

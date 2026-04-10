@@ -1,23 +1,18 @@
-import { useNavigate } from "react-router"
+import { useNavigate } from "react-router-dom"
+import { useAuth } from "../../../Auth/AuthContext"
 
 export function LogOut({ setLogout }) {
     const navigate = useNavigate()
 
+    const {checkAuth} = useAuth()
+
     const handleConfirm = async () => {
-        try {
-            const res = await fetch("/api/logout", {
-                method: "DELETE",
-                credentials: "include"
-            })
-
-            if (!res.ok) {
-                throw new Error("Logout failed")
-            }
-
-            navigate("/login")
-        } catch (err) {
-            console.error(err)
-        }
+        await fetch("/api/logout", {
+            method: "DELETE",
+            credentials: "include"
+        })
+        await checkAuth()
+        navigate("/login")
     }
 
     return (

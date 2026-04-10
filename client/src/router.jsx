@@ -14,6 +14,8 @@ import { SpecificProductsPage } from "./Pages/SpecificProductsPage/SpecificProdu
 import { PgNotFound } from "./Pages/404/PgNotFound";
 import { DonationSuccess } from "./Pages/DonationSuccess/DonationSuccess";
 
+import { AdminRoute } from "./Auth/AdminRoute";
+
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -41,8 +43,10 @@ export const router = createBrowserRouter([
             },
 
             {
-                path: "admin",
-                element: <AdminDashboard />
+                element: <AdminRoute />,
+                children: [
+                    {path: "admin", element: <AdminDashboard />}
+                ]
             }
         ]
     }

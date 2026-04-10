@@ -1,8 +1,11 @@
-import { useOutletContext, useNavigate } from "react-router"
+import { useOutletContext } from "react-router"
 import { LabelInput } from "../../Component/LabelInput"
 import { useForm } from "react-hook-form"
 import {usePost} from "../../CustomHooks/usePost.js"
 import { useEffect } from "react"
+
+import { useNavigate } from "react-router-dom"
+import { useAuth } from "../../Auth/AuthContext.jsx"
 
 export function LoginPg(){
     const appData = useOutletContext()
@@ -38,17 +41,36 @@ export function LoginPg(){
         formState: {errors}
     } = useForm()
 
-    const handleLogin = (formData) => {
-        usePost({
-            url: "/api/login",
-            body: formData,
-            credentials: "include",
-            setLoading: setLoading,
-            onSuccess: () => {
-                navigate("/admin")
-            },
-            onError: setError,
-        })
+    const {checkAuth} = useAuth()
+
+    const handleLogin = async (formData) => {
+        try {
+            setLoading(true)
+
+            const res = await fetch("/api/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                credentials: "include",
+                body: JSON.stringify(formData)
+            })
+
+            const data = await res.json()
+
+            if (!res.ok) {
+                setError(data.error)
+                return
+            }
+
+            await checkAuth()
+            navigate("/admin")
+
+        } catch (err) {
+            setError("Login failed")
+        } finally {
+            setLoading(false)
+        }
     }
 
     return(
