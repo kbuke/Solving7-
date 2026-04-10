@@ -18,47 +18,47 @@ from resources.ProductImages import ProductImage, SpecificProductImg
 from resources.Partners import Partners, SpecificPartner
 from resources.Donations import Donations, PaystackWebhook, VerifyTransaction
 
-add_resource(Members, "/members")
-add_resource(SpecificMember, "/members/<int:id>")
+add_resource(Members, "/api/members")
+add_resource(SpecificMember, "/api/members/<int:id>")
 
-add_resource(Teams, "/teams")
-add_resource(SpecificTeam, "/teams/<int:id>")
+add_resource(Teams, "/api/teams")
+add_resource(SpecificTeam, "/api/teams/<int:id>")
 
-add_resource(Pillar, "/pillars")
-add_resource(SpecificPillar, "/pillars/<int:id>")
+add_resource(Pillar, "/api/pillars")
+add_resource(SpecificPillar, "/api/pillars/<int:id>")
 
-add_resource(Products, "/products")
-add_resource(SpecificProduct, "/products/<int:id>")
+add_resource(Products, "/api/products")
+add_resource(SpecificProduct, "/api/products/<int:id>")
 
-add_resource(SustainableGoals, "/sustainability")
-add_resource(SpecificSustainableGoal, "/sustainability/<int:id>")
+add_resource(SustainableGoals, "/api/sustainability")
+add_resource(SpecificSustainableGoal, "/api/sustainability/<int:id>")
 
-add_resource(SustainablePillar, "/sustainablepillar")
-add_resource(SpecificSustainablePillar, "/sustainablepillar/<int:id>")
+add_resource(SustainablePillar, "/api/sustainablepillar")
+add_resource(SpecificSustainablePillar, "/api/sustainablepillar/<int:id>")
 
-add_resource(ProductPillar, "/productpillar")
-add_resource(SpecificProductPillar, "/productpillar/<int:id>")
+add_resource(ProductPillar, "/api/productpillar")
+add_resource(SpecificProductPillar, "/api/productpillar/<int:id>")
 
-add_resource(Login, "/login")
-add_resource(Logout, "/logout")
+add_resource(Login, "/api/login")
+add_resource(Logout, "/api/logout")
 
-add_resource(AdminDashboard, "/admin")
-add_resource(CheckAdmin, "/check-admin")
+add_resource(AdminDashboard, "/api/admin")
+add_resource(CheckAdmin, "/api/check-admin")
 
-add_resource(EmailList, "/emails")
+add_resource(EmailList, "/api/emails")
 
-add_resource(NewsList, "/news")
-add_resource(SpecificNews, "/news/<int:id>")
+add_resource(NewsList, "/api/news")
+add_resource(SpecificNews, "/api/news/<int:id>")
 
-add_resource(ProductImage, "/productimage")
-add_resource(SpecificProductImg, "/productimage/<int:id>")
+add_resource(ProductImage, "/api/productimage")
+add_resource(SpecificProductImg, "/api/productimage/<int:id>")
 
-add_resource(Partners, "/partners")
-add_resource(SpecificPartner, "/partners/<int:id>")
+add_resource(Partners, "/api/partners")
+add_resource(SpecificPartner, "/api/partners/<int:id>")
 
-add_resource(Donations, "/donations")
-add_resource(PaystackWebhook, "/paystack/webhook")
-add_resource(VerifyTransaction, "/verify/<string:reference>")
+add_resource(Donations, "/api/donations")
+add_resource(PaystackWebhook, "/api/paystack/webhook")
+add_resource(VerifyTransaction, "/api/verify/<string:reference>")
 
 
 if __name__ == "__main__":
