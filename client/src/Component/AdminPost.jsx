@@ -99,7 +99,14 @@ export function AdminPost({
       credentials: "include",
       setLoading: setLoading,
       onSuccess: (newInstance) => {
-        current.setState((prev) => [...prev, newInstance])
+        // current.setState((prev) => [...prev, newInstance])
+        // setPostSuccess(true)
+        if (typeof current?.setState === "function") {
+          current.setState((prev = []) => [...prev, newInstance])
+        } else {
+          console.error("setState missing for topic:", topic)
+        }
+
         setPostSuccess(true)
       },
     })

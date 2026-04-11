@@ -58,7 +58,7 @@ export function LabelInput({
                                         {placeholderText}
                                     </option>
 
-                                    {selectArray.map((option, index) => (
+                                    {selectArray?.map((option, index) => (
                                         <option
                                             key={index}
                                             value={option.value}

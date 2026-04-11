@@ -6,7 +6,7 @@ export function AdminTeams({
     setSelectedInstance, 
     setAction
 }){
-
+    console.log(allTeams)
     return(
         allTeams?.map((team, index) => {
             const teamName = team?.name
