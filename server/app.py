@@ -63,13 +63,7 @@ add_resource(Donations, "/donations")
 add_resource(PaystackWebhook, "/paystack/webhook")
 add_resource(VerifyTransaction, "/verify/<string:reference>")
 
-# @app.route("/")
-# def home():
-#     return send_from_directory("../client/dist", "index.html")
 
-# @app.route("/<path:path>")
-# def static_files(path):
-#     return send_from_directory("../client/dist", path)
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 REACT_BUILD_DIR = os.path.join(BASE_DIR, "..", "client", "dist")
 

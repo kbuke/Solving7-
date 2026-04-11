@@ -24,7 +24,8 @@ export function DonatePopUp({
         setMakingDonation(true)
 
         try{
-            const res = await fetch(`${import.meta.env.VITE_API_URL}/donations`, {
+            // const res = await fetch(`${import.meta.env.VITE_API_URL}/donations`, {
+            const res = await fetch("/donations", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

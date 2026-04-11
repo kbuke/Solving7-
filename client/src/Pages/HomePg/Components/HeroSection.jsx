@@ -2,8 +2,8 @@ import backgroundImg from "/mobileHomeImg.jpg"
 import mobileLogo from "/logoText.png"
 
 export function HeroSection(){
-    // const heroVid = "/s7HeroVid.mp4"
-    const heroVid = "/newHeroVid.mp4"
+    const heroVid = "/s7HeroVid.mp4"
+    // const heroVid = "/newHeroVid.mp4"
     // const backgroundImg = `url("/mobileHomeImg.jpg")`
 
 
