@@ -23,7 +23,7 @@ export function SpecificProductsPage(){
     ) => {
         return(
             <div
-                className={`border-b py-4 border-black/30 lg:border-b-0 mb-10 lg:mb-0 ${rightBorder ? "lg:border-r lg:border-black/60 px-4 mt-4" : "px-4 mt-4"}`}
+                className={`flex flex-col items-center border-b py-4 border-black/30 lg:border-b-0 mb-10 lg:mb-0 ${rightBorder ? "lg:border-r lg:border-black/60 px-4 mt-4" : "px-4 mt-4"}`}
             >
                 <img 
                     src={`/productIcons/${productCat}.png`}

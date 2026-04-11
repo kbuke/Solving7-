@@ -24,16 +24,18 @@ export function TeamSection({
                             className={`mt-4 lg:mt-4 border-b lg:border-none ${isSingleMember ? "col-span-1" : "col-span-2"}`}
                         >
                             <h1 className="secondary-heading px-0 text-center lg:text-left text-2xl lg:text-4xl">
-                            {team.name}
+                                {team.name}
                             </h1>
 
                             <p
                                 className="text-center lg:text-left mb-4"
-                            >{team.info}</p>
+                            >
+                                {team.info}
+                            </p>
 
                             <div className={`flex flex-col items-center lg:grid gap-10 ${isSingleMember ? "lg:grid-cols-1" : "lg:grid-cols-2"}`}>
                                 {team.members?.map((member, i) => (
-                                    <div key={i} className="lg:grid lg:grid-cols-2 lg:gap-4">
+                                    <div key={i} className="flex flex-col items-center lg:grid lg:grid-cols-2 lg:gap-4">
                                         <img 
                                             src={member?.img? member.img : `/EmployeeImg/${member?.name}.jpg`}
                                             alt={`${member?.name}-img`}

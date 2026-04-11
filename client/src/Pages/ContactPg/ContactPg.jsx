@@ -16,7 +16,7 @@ export function ContactPg(){
         >
             <img 
                 src={"/contactDTImg.jpg"}
-                className="h-full"
+                className="w-full h-100 lg:h-full"
             />
 
             <ContactSection 
