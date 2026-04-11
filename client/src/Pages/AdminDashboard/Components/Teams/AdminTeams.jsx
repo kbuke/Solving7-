@@ -8,7 +8,7 @@ export function AdminTeams({
 }){
 
     return(
-        allTeams.map((team, index) => {
+        allTeams?.map((team, index) => {
             const teamName = team?.name
             const teamImg = TeamsImg(teamName)
             const teamInfo = team?.info
