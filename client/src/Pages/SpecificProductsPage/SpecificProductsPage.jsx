@@ -27,7 +27,7 @@ export function SpecificProductsPage(){
             >
                 <img 
                     src={`/productIcons/${productCat}.png`}
-                    className="h-20 justify-self-center"
+                    className="h-20 justify-self-center self-center"
                 />
 
                 <p

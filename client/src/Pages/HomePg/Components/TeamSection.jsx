@@ -31,36 +31,36 @@ export function TeamSection({
                                 className="text-center lg:text-left mb-4"
                             >{team.info}</p>
 
-                            <div className={`lg:grid gap-10 ${isSingleMember ? "lg:grid-cols-1" : "lg:grid-cols-2"}`}>
-                            {team.members?.map((member, i) => (
-                                <div key={i} className="lg:grid lg:grid-cols-2">
-                                    <img 
-                                        src={member?.img? member.img : `/EmployeeImg/${member?.name}.jpg`}
-                                        alt={`${member?.name}-img`}
-                                        className="h-60 lg:h-120 w-60 lg:w-80 rounded-full lg:rounded justify-self-center lg:justify-self-start"
-                                    />
+                            <div className={`flex flex-col items-center lg:grid gap-10 ${isSingleMember ? "lg:grid-cols-1" : "lg:grid-cols-2"}`}>
+                                {team.members?.map((member, i) => (
+                                    <div key={i} className="lg:grid lg:grid-cols-2 lg:gap-4">
+                                        <img 
+                                            src={member?.img? member.img : `/EmployeeImg/${member?.name}.jpg`}
+                                            alt={`${member?.name}-img`}
+                                            className="h-60 lg:h-120 w-60 lg:w-80 rounded-full lg:rounded justify-self-center lg:justify-self-start"
+                                        />
 
-                                    <div>
-                                        <h1
-                                            className="uppercase text-3xl font-bold tracking-[4px] text-center lg:text-left mt-4 lg:mt-0"
-                                        >
-                                            {member?.name}
-                                        </h1>
+                                        <div>
+                                            <h1
+                                                className="uppercase text-3xl font-bold tracking-[4px] text-center lg:text-left mt-4 lg:mt-0"
+                                            >
+                                                {member?.name}
+                                            </h1>
 
-                                        <h1
-                                            className="uppercase text-xl font-bold tracking-widest text-center lg:text-left"
-                                        >
-                                            {member?.position}
-                                        </h1>
+                                            <h1
+                                                className="uppercase text-xl font-bold tracking-widest text-center lg:text-left"
+                                            >
+                                                {member?.position}
+                                            </h1>
 
-                                        <p
-                                            className="text-lg mb-10 lg:mb-0"
-                                        >
-                                            {member?.intro}
-                                        </p>
+                                            <p
+                                                className="text-lg mb-10 lg:mb-0"
+                                            >
+                                                {member?.intro}
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                            ))}
+                                ))}
                             </div>
                         </div>
                     )

@@ -20,7 +20,7 @@ export function SpecificPillarPage(){
     ) => {
         return(
             <div
-                className={`mb-10 lg:mb-0 ${rightBorder ? "lg:border-r lg:border-black/60 px-4 mt-4" : "px-4 mt-4"}`}
+                className={`flex flex-col items-center mb-10 lg:mb-0 ${rightBorder ? "lg:border-r lg:border-black/60 px-4 mt-4" : "px-4 mt-4"}`}
             >
                 <img 
                     src={`/challengeOfferingSuccess/${pillarCat}.png`}
