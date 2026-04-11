@@ -59,7 +59,7 @@ add_resource(SpecificProductImg, "/api/productimage/<int:id>")
 add_resource(Partners, "/api/partners")
 add_resource(SpecificPartner, "/api/partners/<int:id>")
 
-add_resource(Donations, "/api/donations")
+add_resource(Donations, "/donations")
 add_resource(PaystackWebhook, "/paystack/webhook")
 add_resource(VerifyTransaction, "/verify/<string:reference>")
 
