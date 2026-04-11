@@ -32,6 +32,11 @@
         py-4
     }
 
+    .achieved-goal{
+        @apply
+        lg:gap-8
+    }
+
     .secondary-heading{
         @apply
         text-lg

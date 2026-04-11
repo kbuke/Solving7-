@@ -46,7 +46,7 @@ export function AchievedSustainableGoals({
                         <div 
                             key={index}
                             style={{backgroundImage: `url(${unGoalIcon(aGId)})`}}
-                            className="bg-center bg-cover h-40 w-40 lg:h-60 lg:w-60 cursor-pointer hover:scale-110 duration-200"
+                            className="achieved-goal bg-center bg-cover h-40 w-40 lg:h-60 lg:w-60 cursor-pointer hover:scale-110 duration-200"
                             onClick={() => setSelectedGoal(aG)}
                         />
                     )
