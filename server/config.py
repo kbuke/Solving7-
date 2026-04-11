@@ -75,5 +75,11 @@ app.config.update(
 CORS(
     app,
     supports_credentials=True,
-    origins=[os.getenv("FRONTEND_URL")]
+    origins=[
+        "https://solving7-static.onrender.com",
+        "https://solving7.green",
+        "https://www.solving7.green",
+        "https://solving7-app.onrender.com"
+    ]
+    # origins=[os.getenv("FRONTEND_URL")]
 )
