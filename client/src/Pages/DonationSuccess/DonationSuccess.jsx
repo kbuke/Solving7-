@@ -13,7 +13,7 @@ export function DonationSuccess(){
         async function verify(){
             try{
                 const res = await fetch(
-                    `${import.meta.env.VITE_API_URL}/verify/${reference}`
+                    `/verify/${reference}`
                 )
                 const data = await res.json()
 
@@ -30,6 +30,8 @@ export function DonationSuccess(){
         }
         if(reference) verify()
     }, [reference])
+
+    console.log(status)
 
     return(
         <section
