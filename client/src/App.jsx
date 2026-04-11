@@ -58,6 +58,8 @@ function App() {
     screenWidth
   }
 
+  console.log("teams:", allTeams)
+
   return(
     <>
       <Outlet 
