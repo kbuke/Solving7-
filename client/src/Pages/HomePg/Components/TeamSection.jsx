@@ -35,11 +35,11 @@ export function TeamSection({
 
                             <div className={`flex flex-col items-center lg:grid gap-10 ${isSingleMember ? "lg:grid-cols-1" : "lg:grid-cols-2"}`}>
                                 {team.members?.map((member, i) => (
-                                    <div key={i} className="flex flex-col items-center lg:grid lg:grid-cols-2 lg:gap-4">
+                                    <div key={i} className="flex flex-col items-center lg:grid lg:grid-cols-2 lg:gap-4 lg:items-start">
                                         <img 
                                             src={member?.img? member.img : `/EmployeeImg/${member?.name}.jpg`}
                                             alt={`${member?.name}-img`}
-                                            className="h-60 lg:h-120 w-60 lg:w-80 rounded-full lg:rounded justify-self-center lg:justify-self-start lg:items-start"
+                                            className="h-60 lg:h-120 w-60 lg:w-80 rounded-full lg:rounded justify-self-center lg:justify-self-start"
                                         />
 
                                         <div>
