@@ -39,7 +39,7 @@ export function TeamSection({
                                         <img 
                                             src={member?.img? member.img : `/EmployeeImg/${member?.name}.jpg`}
                                             alt={`${member?.name}-img`}
-                                            className="h-60 lg:h-120 w-60 lg:w-80 rounded-full lg:rounded justify-self-center lg:justify-self-start"
+                                            className="h-60 lg:h-120 w-60 lg:w-80 rounded-full lg:rounded justify-self-center lg:justify-self-start lg:items-start"
                                         />
 
                                         <div>
