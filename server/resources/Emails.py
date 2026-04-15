@@ -36,8 +36,9 @@ class EmailList(Resource):
             db.session.commit()
 
             # Send email with Resend 
-            resend.Emails.send({
-                "from": f"Solving7 <{recipient_email}>",
+            response = resend.Emails.send({
+                # "from": f"Solving7 <{recipient_email}>",
+                "from": "Solving7 <noreply@solving7.green>",
                 "to": [recipient_email],
                 "reply_to": json_data.get("senderEmail"),
                 "subject": new_email.email_subject,
@@ -47,6 +48,7 @@ class EmailList(Resource):
                     <p>{new_email.email_message}</p>
                 """
             })
+            print(response)
 
             return {"message": "Email sent successfully"}, 201
 
